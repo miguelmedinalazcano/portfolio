@@ -184,7 +184,7 @@ section.block{padding-block:clamp(64px,9vw,128px);border-top:1px solid var(--lin
 .stage figure{position:absolute;inset:0;margin:0;display:grid;grid-template-rows:1fr auto;padding:20px;opacity:0;transition:opacity .45s;pointer-events:none}
 .stage figure.on{opacity:1}
 .stage figure img{width:100%;height:100%;object-fit:contain;min-height:0}
-.stage .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:0}
+.stage .pair{display:grid;grid-template-columns:1fr;grid-template-rows:1fr 1fr;gap:10px;min-height:0}
 .stage .pair img{object-fit:contain}
 
 /* compare */
@@ -812,10 +812,10 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
         </div>
         <div class="step" data-fig="6">
           <p class="k">Validation</p>
-          <h3>Torsion, and every rule load case</h3>
-          <p>Rotation along the car rises where the cockpit opening begins, because torsion needs closed box sections to carry shear. Rule load cases were checked with the Hill criterion:</p>
+          <h3>Every rule load case, then torsion</h3>
+          <p>To close the loop, every rule load case was applied to the final laminate and passed the Hill failure criterion:</p>
           <ul><li>Main hoop: 30 kN in x, y and z.</li><li>TSAC: 19 kN in x and y, 9.5 kN in z.</li><li>Front impact: 20 kN (250 kg at 8 g). Side impact: 7.5 kN perimeter shear.</li><li>Harness and anti-submarine loads.</li></ul>
-          <p>Where it flagged stress concentrations, at the cockpit edge and the anti-intrusion plate, the thesis recommends fillets for the next iteration.</p>
+          <p>A final torsional stiffness test then gave the result: 4,089 Nm/deg. Rotation along the car rises where the cockpit opening begins, because torsion needs closed box sections to carry shear. Fillets at the cockpit edge and the anti-intrusion plate are noted as refinements for the next iteration.</p>
           <figure class="inline"><img src="img/tfg_rot.jpg" alt="Rotation along the chassis length" loading="lazy"></figure>
         </div>
         <div class="step" data-fig="7">
@@ -871,7 +871,7 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
     <div class="sec-head">
       <p class="eyebrow">06 · Design &amp; vehicle concept · IFS-07 and IFS-08</p>
       <h2>Every car started on paper.</h2>
-      <p class="lede">My concept sketches for the IFS-07 and IFS-08: packaging, aero surfaces and structural details. The team later turned them into its merchandise, so the concept travelled with every member.</p>
+      <p class="lede">My concept sketches for the IFS-07 and IFS-08: packaging, aero surfaces and structural details. I made them to help team members get past the blocks they hit during the design phase.</p>
     </div>
     <div class="sketch-grid">
       <figure class="s-a"><img src="img/sk_ifs07_plan.jpg" alt="Hand sketch of the IFS-07 in top and side view with annotations" loading="lazy"><figcaption class="cap">IFS-07 concept, top and side views</figcaption></figure>
@@ -879,11 +879,11 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
       <figure class="s-c"><img src="img/sk_aero.jpg" alt="Sketch of aerodynamic concept with sidepods and wings" loading="lazy"><figcaption class="cap">Aerodynamic packaging</figcaption></figure>
       <figure class="s-d"><img src="img/sk_venturi.jpg" alt="Sketch of a floor with venturi channel" loading="lazy"><figcaption class="cap">Floor and venturi</figcaption></figure>
       <figure class="s-e"><img src="img/sk_fwing.jpg" alt="Sketch of a front wing with sections and endplates" loading="lazy"><figcaption class="cap">Front wing sections</figcaption></figure>
-      <figure class="s-f"><img src="img/sk_bracket.jpg" alt="Sketch of a carbon fibre mounting bracket" loading="lazy"><figcaption class="cap">Carbon mounting points</figcaption></figure>
+      <figure class="s-f"><img src="img/sk_bracket.jpg" alt="Sketch of a powertrain support bracket" loading="lazy"><figcaption class="cap">Powertrain support brackets</figcaption></figure>
       <figure class="s-d"><img src="img/sk_struct.jpg" alt="Sketch of structural members and mounting" loading="lazy"><figcaption class="cap">Structural member layout</figcaption></figure>
       <figure class="s-e"><img src="img/sk_mounts.jpg" alt="Sketch of battery container mounts" loading="lazy"><figcaption class="cap">Mounting brackets and lateral forces</figcaption></figure>
       <figure class="s-f"><img src="img/sk_sidepod.jpg" alt="Sketch of sidepod and suspension detail" loading="lazy"><figcaption class="cap">Aero detail</figcaption></figure>
-      <figure class="s-b"><img src="img/sk_p0.jpg" alt="Sketches of front wing endplates and flaps with an insert pull-out hand calculation" loading="lazy"><figcaption class="cap">Front wing elements and an insert pull-out hand calculation</figcaption></figure>
+      <figure class="s-b"><img src="img/sk_p0.jpg" alt="Sketches of front wing endplates and flaps" loading="lazy"><figcaption class="cap">Front wing elements</figcaption></figure>
       <figure class="s-c"><img src="img/sk_p1.jpg" alt="Rule-of-mixtures equations and triangular composite bracket sketches" loading="lazy"><figcaption class="cap">Rule of mixtures and composite brackets</figcaption></figure>
       <figure class="s-b"><img src="img/sk_p2.jpg" alt="Perspective sketch of a sidepod and rear wheel" loading="lazy"><figcaption class="cap">Sidepod and wheel in perspective</figcaption></figure>
       <figure class="s-c"><img src="img/sk_p4.jpg" alt="Sketches of chassis triangulation and a suspension bracket" loading="lazy"><figcaption class="cap">Chassis triangulation and brackets</figcaption></figure>
@@ -974,12 +974,6 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
           <figure><img src="img/rm_regs.jpg" alt="RULEMAP: Rules view"><figcaption class="cap">Rules: all articles in a searchable list, filtered to mechanical clauses, with what changed in this issue.</figcaption></figure>
           <figure><img src="img/rm_analyse.jpg" alt="RULEMAP: Analyse view"><figcaption class="cap">Analyse: import a new issue or paste a clause or technical directive. RULEMAP diffs it against the active dataset and lists the hotspots and calculators to re-check.</figcaption></figure>
         </div>
-      <dl class="spec">
-        <div><dt>Built with</dt><dd>JavaScript and Electron for the app; Python with PyMuPDF to extract the regulation text letter by letter, remove struck-out wording and keep the change marks</dd></div>
-        <div><dt>Calculators</dt><dd>Flex tests, the C3.18.5 floor envelope, the 400 ms adjuster, mass distribution, plank wear, fuel energy flow, ERS, PU mass and CoG, impact energy and static safety tests</dd></div>
-        <div><dt>Next</dt><dd>Feeds the aeroelastic study of the floor and front wing, and its effect on lap time</dd></div>
-        <div><dt>Code</dt><dd>Private GitHub repository · link coming soon</dd></div>
-      </dl>
     </div>
 
   </div>
@@ -995,8 +989,8 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
     <div class="letter">
       <p class="eyebrow">In short</p>
       <blockquote>
-        <p>I optimised a CFRP monocoque in HyperMesh and OptiStruct to 19.78 kg and 4,089 Nm/deg, and checked it against every rule load case. At Managing Composites I size laminates for motorsport and hypercar clients and calibrate material models against physical test data in LS-Dyna.</p>
-        <p>I also know what a design freeze costs when it slips. I have run a team of more than 80 people to one. I would bring that discipline to your structural design team, and learn from the engineers around me.</p>
+        <p>I optimised a CFRP monocoque in HyperMesh and OptiStruct to 19.78 kg and 4,089 Nm/deg, and checked it against every rule load case. At Managing Composites I test structural carbon fibre parts, calibrate material cards, automate simulations, organise project folders and create tools that integrate AI.</p>
+        <p>Formula Student taught me how much work sits behind a design freeze, and how easily it can slip. Helping more than 80 people get there showed me the value of planning, communication and listening. I still have a lot to learn, and I would like to bring that experience to your structural design team while learning from the engineers around me.</p>
       </blockquote>
     </div>
   </div>
