@@ -1,0 +1,1173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Miguel Medina Portfolio</title>
+<meta name="description" content="Engineering portfolio of Miguel Ángel Medina Lazcano: composite structures, CFRP monocoque optimisation and four seasons of Formula Student.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#FFFFFF; --ink:#121416; --ink-2:#4A5158; --ink-3:#7D848C; --line:#E3E5E8; --wash:#F4F5F6;
+  --papaya:#FF8000; --papaya-ink:#B35300; --papaya-wash:#FFF3E6; --isc:#1D5A3E; --isc-wash:#EAF2EE;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  --gutter:clamp(16px,4vw,56px);
+  --nav:56px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:var(--nav)}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--papaya);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);line-height:1.02;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+.wrap{padding-inline:var(--gutter);max-width:1360px;margin-inline:auto}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
+.eyebrow b{color:var(--papaya-ink);font-weight:600}
+.lede{font-size:clamp(17px,1.5vw,20px);color:var(--ink-2);max-width:62ch}
+.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.cap{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;color:var(--ink-3);margin-top:8px;line-height:1.45}
+
+/* progress + nav */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:var(--papaya);z-index:60}
+nav.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:var(--nav)}
+.brand{font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 112;font-size:15px;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
+.brand span{color:var(--papaya)}
+.links{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.links::-webkit-scrollbar{display:none}
+.links a{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink-2);padding:6px 10px;border-radius:2px;white-space:nowrap}
+.links a:hover{color:var(--ink)}
+.links a.on{color:var(--ink);box-shadow:inset 0 -2px 0 var(--papaya)}
+
+/* hero */
+.hero{padding-block:clamp(32px,6vw,80px) clamp(40px,6vw,88px)}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,64px);align-items:end}
+.hero h1{font-size:clamp(44px,7.4vw,112px);font-weight:850;font-variation-settings:"wdth" 118;letter-spacing:-.025em;line-height:.92;margin-top:18px}
+.hero h1 em{font-style:normal;color:var(--papaya)}
+.hero .who{margin-top:28px;display:grid;gap:14px}
+.hero .name{font-family:var(--display);font-weight:700;font-size:clamp(20px,2vw,26px);font-variation-settings:"wdth" 100}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:var(--mono);font-size:12px;border:1px solid var(--line);padding:5px 10px;border-radius:999px;color:var(--ink-2);background:var(--bg)}
+.chip.hot{border-color:var(--papaya);color:var(--papaya-ink);background:var(--papaya-wash)}
+.hero-fig{position:relative;overflow:hidden;border-radius:4px;aspect-ratio:3/4;max-height:78vh;background:var(--wash)}
+.hero-fig img{width:100%;height:100%;object-fit:cover;transform-origin:50% 60%;will-change:transform}
+.hero-fig figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.62));color:#fff;font-family:var(--mono);font-size:11.5px;letter-spacing:.05em}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);margin-top:clamp(36px,5vw,64px)}
+.stat{padding:18px 18px 4px 0;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat+.stat{padding-left:18px}
+.stat .n{font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 110;font-size:clamp(32px,4vw,54px);line-height:1;font-variant-numeric:tabular-nums}
+.stat .n small{font-size:.45em;font-weight:600;margin-left:2px}
+.stat .l{font-size:13.5px;color:var(--ink-2);margin-top:8px;max-width:28ch}
+
+section.block{padding-block:clamp(64px,9vw,128px);border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:14px;margin-bottom:clamp(32px,5vw,56px);max-width:900px}
+.sec-head h2{font-size:clamp(34px,5vw,68px);font-weight:820;font-variation-settings:"wdth" 112}
+
+/* about / philosophy */
+.phil{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,5vw,80px)}
+.phil-quote{position:sticky;top:calc(var(--nav) + 32px);align-self:start}
+.phil-quote blockquote{margin:0;font-family:var(--display);font-weight:780;font-variation-settings:"wdth" 108;font-size:clamp(30px,3.8vw,54px);line-height:1.02;letter-spacing:-.015em}
+.phil-quote blockquote::before{content:"";display:block;width:56px;height:6px;background:var(--papaya);margin-bottom:22px}
+.phil-quote .src{margin-top:16px}
+.phil-quote .src a{color:var(--ink-3)}
+.values{display:grid;gap:0}
+.value{padding-block:28px;border-top:1px solid var(--line);display:grid;grid-template-columns:120px 1fr;gap:20px}
+.value:first-child{border-top:0;padding-top:0}
+.value h3{font-size:22px;font-weight:720;font-variation-settings:"wdth" 100;margin-bottom:8px}
+.value .tag{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--papaya-ink);padding-top:5px}
+.value p{color:var(--ink-2);max-width:60ch}
+.value p+p{margin-top:10px}
+.me-strip{display:grid;grid-template-columns:1.1fr .8fr .8fr;gap:12px;margin-top:clamp(48px,6vw,80px)}
+.me-strip figure{margin:0}
+.me-strip img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:3px;background:var(--wash)}
+.me-strip figure:first-child img{aspect-ratio:auto;height:100%;max-height:520px}
+.interests{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+
+/* teams — floating logos */
+.teams{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,3vw,40px)}
+.team-btn{all:unset;box-sizing:border-box;cursor:pointer;display:grid;place-items:center;gap:18px;min-height:280px;border:1px solid var(--line);border-radius:6px;padding:32px 20px;background:radial-gradient(120% 90% at 50% 20%,var(--wash),var(--bg) 70%);position:relative;transition:border-color .25s}
+.team-btn:hover,.team-btn[aria-expanded="true"]{border-color:var(--ink)}
+.team-btn:focus-visible{outline:2px solid var(--papaya);outline-offset:4px}
+.floaty{animation:float 6s ease-in-out infinite;filter:drop-shadow(0 18px 18px rgba(18,20,22,.12))}
+.team-btn:nth-child(2) .floaty{animation-delay:-3s}
+@keyframes float{0%,100%{transform:translateY(-6px) rotate(-1deg)}50%{transform:translateY(8px) rotate(1deg)}}
+.isc-logo{width:190px;height:190px;object-fit:cover;border-radius:12px}
+.mc-logo{width:230px;background:#fff;padding:18px 20px;border-radius:4px}
+.team-meta{text-align:center}
+.team-meta strong{display:block;font-family:var(--display);font-weight:720;font-size:20px;font-variation-settings:"wdth" 100}
+.team-meta span{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.team-meta .hint{display:inline-block;margin-top:10px;color:var(--papaya-ink)}
+.team-panel{grid-column:1/-1;border:1px solid var(--ink);border-radius:6px;padding:clamp(20px,3vw,40px);background:var(--bg)}
+.team-panel .roles{display:grid;gap:28px}
+.role{display:grid;grid-template-columns:220px 1fr;gap:20px;padding-top:24px;border-top:1px solid var(--line)}
+.role:first-child{border-top:0;padding-top:0}
+.role h4{margin:0;font-family:var(--display);font-weight:720;font-size:19px;font-variation-settings:"wdth" 100;line-height:1.15}
+.role .when{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-top:6px}
+.role ul{margin:0;padding-left:18px;color:var(--ink-2);display:grid;gap:6px}
+.role li::marker{color:var(--papaya)}
+
+/* horizontal chronology */
+.hs{position:relative;border-top:1px solid var(--line)}
+.hs-intro{padding-block:clamp(64px,9vw,120px) 24px}
+.hs-pin{position:relative}
+.hs-sticky{position:sticky;top:var(--nav);height:calc(100vh - var(--nav));overflow:hidden;display:flex;flex-direction:column}
+.hs-rail{display:flex;align-items:center;gap:0;padding:14px var(--gutter);border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px}
+.hs-rail button{all:unset;cursor:pointer;padding:4px 12px 4px 0;color:var(--ink-3);letter-spacing:.06em;display:flex;align-items:center;gap:10px}
+.hs-rail button::after{content:"";width:clamp(20px,6vw,90px);height:1px;background:var(--line)}
+.hs-rail button:last-child::after{display:none}
+.hs-rail button.on{color:var(--ink);font-weight:600}
+.hs-rail button:focus-visible{outline:2px solid var(--papaya)}
+.hs-track{display:flex;height:100%;will-change:transform}
+.car{flex:0 0 100%;height:100%;padding:clamp(18px,3vh,36px) var(--gutter);display:grid;grid-template-columns:minmax(300px,.8fr) 1.2fr;gap:clamp(20px,3vw,48px);min-height:0}
+.car-copy{display:flex;flex-direction:column;gap:14px;min-height:0;overflow:auto;padding-right:6px}
+.car-id{font-family:var(--display);font-weight:900;font-variation-settings:"wdth" 125;font-size:clamp(60px,9vw,150px);line-height:.82;letter-spacing:-.03em;color:transparent;-webkit-text-stroke:1.5px var(--ink)}
+.car-id.solid{color:var(--ink);-webkit-text-stroke:0}
+.car .season{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--ink-3);text-transform:uppercase}
+.car h3{font-size:clamp(22px,2.2vw,30px);font-weight:760;font-variation-settings:"wdth" 104}
+.car p{color:var(--ink-2);max-width:56ch}
+.car ul{margin:0;padding-left:18px;color:var(--ink-2);display:grid;gap:5px;max-width:58ch}
+.car li::marker{color:var(--papaya)}
+.me-role{display:inline-flex;gap:8px;align-items:center;font-family:var(--mono);font-size:12px;background:var(--isc-wash);color:var(--isc);padding:5px 10px;border-radius:2px;align-self:flex-start}
+.car-media{display:grid;gap:10px;min-height:0;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr}
+.car-media figure{margin:0;position:relative;min-height:0;overflow:hidden;border-radius:3px;background:var(--wash)}
+.car-media figure:first-child{grid-row:1/3}
+.car-media img{width:100%;height:100%;object-fit:cover}
+.car-media figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 10px 8px;background:linear-gradient(transparent,rgba(0,0,0,.6));color:#fff;font-family:var(--mono);font-size:11px;line-height:1.35}
+
+/* blueprint */
+.bp{position:relative;border-top:1px solid var(--line);background:#fff}
+.bp-pin{height:420vh;position:relative}
+.bp-sticky{position:sticky;top:var(--nav);height:calc(100vh - var(--nav));overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.bp-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;padding:clamp(18px,3vh,32px) var(--gutter) 10px}
+.bp-head h2{font-size:clamp(30px,4.2vw,58px);font-weight:820;font-variation-settings:"wdth" 112}
+.bp-stage{position:relative;overflow:hidden;background-image:linear-gradient(var(--wash) 1px,transparent 1px),linear-gradient(90deg,var(--wash) 1px,transparent 1px);background-size:32px 32px}
+.bp-img{position:absolute;left:50%;top:50%;width:min(96%,1500px);transform:translate(-50%,-50%);transform-origin:50% 50%;will-change:transform}
+.bp-note{position:absolute;left:var(--gutter);bottom:clamp(14px,3vh,28px);max-width:420px;background:rgba(255,255,255,.94);border:1px solid var(--line);border-left:4px solid var(--papaya);padding:14px 16px;border-radius:2px}
+.bp-note .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--papaya-ink)}
+.bp-note h3{font-size:20px;font-weight:740;font-variation-settings:"wdth" 102;margin:4px 0 6px}
+.bp-note p{font-size:14px;color:var(--ink-2)}
+.bp-steps{position:absolute;right:var(--gutter);bottom:clamp(14px,3vh,28px);display:flex;gap:6px}
+.bp-steps i{width:28px;height:3px;background:var(--line);display:block}
+.bp-steps i.on{background:var(--ink)}
+.bp-after{padding-block:clamp(40px,6vw,72px)}
+.build-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.build-grid figure{margin:0}
+.build-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:3px;background:var(--wash)}
+.build-grid figure.wide{grid-column:span 2}
+.build-grid figure.wide img{aspect-ratio:auto;height:calc(100% - 40px);min-height:200px}
+
+/* thesis scrolly */
+.thesis-top{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,4vw,64px);align-items:end;margin-bottom:clamp(40px,6vw,72px)}
+.grade{border:1px solid var(--ink);border-radius:4px;padding:20px 22px;display:grid;gap:10px}
+.grade .big{font-family:var(--display);font-weight:850;font-variation-settings:"wdth" 118;font-size:64px;line-height:.9}
+.grade .big small{font-size:.4em;color:var(--ink-3)}
+.scrolly{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(24px,4vw,64px)}
+.steps{display:grid}
+.step{min-height:78vh;padding-block:24px;display:flex;flex-direction:column;justify-content:center;gap:12px;opacity:.38;transition:opacity .35s}
+.step.on{opacity:1}
+.step .k{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--papaya-ink);text-transform:uppercase}
+.step h3{font-size:clamp(24px,2.4vw,34px);font-weight:760;font-variation-settings:"wdth" 104}
+.step p{color:var(--ink-2)}
+.step ul{margin:0;padding-left:18px;color:var(--ink-2);display:grid;gap:4px}
+.step li::marker{color:var(--papaya)}
+.step .inline{display:none}
+.step .inline img{border-radius:3px;border:1px solid var(--line);background:#fff}
+.stage{position:sticky;top:calc(var(--nav) + 24px);height:calc(100vh - var(--nav) - 48px);align-self:start;border:1px solid var(--line);border-radius:4px;background:#fff;overflow:hidden}
+.stage figure{position:absolute;inset:0;margin:0;display:grid;grid-template-rows:1fr auto;padding:20px;opacity:0;transition:opacity .45s;pointer-events:none}
+.stage figure.on{opacity:1}
+.stage figure img{width:100%;height:100%;object-fit:contain;min-height:0}
+.stage .pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:0}
+.stage .pair img{object-fit:contain}
+
+/* compare */
+.compare{margin-top:clamp(40px,6vw,72px);border-top:1px solid var(--ink);padding-top:28px;display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,4vw,64px)}
+.seg{display:inline-flex;border:1px solid var(--ink);border-radius:3px;overflow:hidden;margin-top:16px;flex-wrap:wrap}
+.seg button{all:unset;cursor:pointer;font-family:var(--mono);font-size:12px;padding:8px 12px;letter-spacing:.03em}
+.seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+.seg button:focus-visible{outline:2px solid var(--papaya);outline-offset:-2px}
+.bars{display:grid;gap:26px}
+.metric h4{margin:0 0 10px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);display:flex;justify-content:space-between;gap:12px}
+.metric h4 .delta{color:var(--papaya-ink);font-weight:600}
+.bar{display:grid;grid-template-columns:150px 1fr 90px;align-items:center;gap:12px;font-size:13.5px;margin-top:8px}
+.bar .t{height:22px;background:var(--wash);border-radius:2px;overflow:hidden}
+.bar .f{height:100%;background:var(--ink-3);width:0;transition:width .7s cubic-bezier(.2,.7,.2,1)}
+.bar.final .f{background:var(--papaya)}
+.bar .v{font-family:var(--mono);text-align:right;font-variant-numeric:tabular-nums}
+.foot-note{font-size:13px;color:var(--ink-3);margin-top:18px;max-width:70ch}
+
+/* sketches */
+.sketch-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.sketch-grid figure{margin:0;background:#fff;border:1px solid var(--line);border-radius:3px;padding:10px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .35s}
+.sketch-grid figure:hover{transform:rotate(-.6deg) translateY(-3px)}
+.sketch-grid img{width:100%;object-fit:contain;mix-blend-mode:multiply}
+.s-a{grid-column:span 3;grid-row:span 2}.s-b{grid-column:span 3}.s-c{grid-column:span 3}
+.s-d{grid-column:span 2}.s-e{grid-column:span 2}.s-f{grid-column:span 2}
+.slogan{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;align-items:center}
+
+/* tools */
+.tool{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,4vw,64px);align-items:start}
+.tool-shots{display:grid;gap:12px}
+.shot{border:1px solid var(--line);border-radius:4px;overflow:hidden;background:#fff}
+.shot .bar-top{display:flex;gap:6px;padding:8px 10px;border-bottom:1px solid var(--line);background:var(--wash);align-items:center}
+.shot .bar-top i{width:9px;height:9px;border-radius:50%;background:var(--line);display:block}
+.shot .bar-top span{margin-left:8px;font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.shot-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.redact{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;color:var(--papaya-ink);background:var(--papaya-wash);padding:5px 10px;border-radius:2px}
+.spec{display:grid;gap:0;margin-top:20px;border-top:1px solid var(--line)}
+.spec div{display:grid;grid-template-columns:140px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.spec dt{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding-top:3px}
+.spec dd{margin:0;color:var(--ink-2)}
+
+.wip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:clamp(48px,6vw,80px)}
+.wip article{border:1px solid var(--line);border-radius:4px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.wip .status{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--papaya-ink);display:flex;align-items:center;gap:8px}
+.wip .status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--papaya);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.3}}
+.wip h3{font-size:21px;font-weight:740;font-variation-settings:"wdth" 102}
+.wip p{color:var(--ink-2);font-size:15px}
+.flow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-family:var(--mono);font-size:11.5px;margin-top:auto;padding-top:8px}
+.flow span{border:1px solid var(--line);padding:3px 8px;border-radius:2px}
+.flow i{font-style:normal;color:var(--ink-3)}
+.repo{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+
+/* why mclaren */
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--ink)}
+.why article{padding:24px 24px 8px 0;border-right:1px solid var(--line)}
+.why article+article{padding-left:24px}
+.why article:last-child{border-right:0}
+.why .n{font-family:var(--display);font-weight:820;font-variation-settings:"wdth" 110;font-size:clamp(34px,3.6vw,50px);line-height:1;font-variant-numeric:tabular-nums}
+.why .n .arrow{color:var(--papaya)}
+.why h3{font-size:18px;font-weight:700;font-variation-settings:"wdth" 100;margin:12px 0 8px}
+.why p{color:var(--ink-2);font-size:15px}
+.letter{margin-top:clamp(40px,6vw,72px);display:grid;grid-template-columns:.35fr 1fr;gap:clamp(24px,4vw,64px)}
+.letter blockquote{margin:0;font-size:clamp(18px,1.7vw,22px);line-height:1.55;color:var(--ink);max-width:62ch;display:grid;gap:16px}
+
+/* skills + contact */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line)}
+.skills div{padding:22px 22px 22px 0;border-bottom:1px solid var(--line)}
+.skills h3{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin-bottom:10px}
+.skills p{color:var(--ink-2);font-size:15px}
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:clamp(40px,5vw,64px)}
+.edu article{border:1px solid var(--line);border-radius:4px;padding:22px;display:grid;gap:8px;align-content:start}
+.edu h3{font-size:20px;font-weight:740;font-variation-settings:"wdth" 102}
+.edu p{color:var(--ink-2);font-size:15px}
+.contact{background:var(--ink);color:#fff;padding-block:clamp(64px,9vw,120px)}
+.contact h2{font-size:clamp(40px,6.4vw,96px);font-weight:860;font-variation-settings:"wdth" 118;letter-spacing:-.02em}
+.contact h2 em{font-style:normal;color:var(--papaya)}
+.contact .lede{color:#C9CDD1;margin-top:18px}
+.c-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(36px,5vw,56px);border-top:1px solid #3A3F44}
+.c-grid div{padding:18px 18px 0 0}
+.c-grid .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#8C939A}
+.c-grid .v{margin-top:6px;font-size:16px;word-break:break-word;user-select:all}
+.c-grid a{color:#fff;text-decoration-color:var(--papaya);text-underline-offset:4px}
+.copy{all:unset;cursor:pointer;margin-top:10px;font-family:var(--mono);font-size:11.5px;border:1px solid #5A6066;padding:5px 10px;border-radius:2px;display:inline-block}
+.copy:focus-visible{outline:2px solid var(--papaya)}
+.footer-note{margin-top:48px;font-family:var(--mono);font-size:11px;color:#8C939A;max-width:90ch;line-height:1.6}
+
+
+/* tool blocks */
+.tool-title{font-size:clamp(22px,2.2vw,30px);font-weight:760;font-variation-settings:"wdth" 104;margin-bottom:14px}
+.tblock{margin-top:clamp(64px,8vw,112px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--ink)}
+.tblock-head{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,4vw,64px);align-items:end;margin-bottom:28px}
+.th{font-size:clamp(26px,2.8vw,40px);font-weight:790;font-variation-settings:"wdth" 108}
+.rm-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-bottom:24px}
+.rm-stats div{padding:16px 16px 14px 0;border-right:1px solid var(--line)}
+.rm-stats div+div{padding-left:16px}
+.rm-stats div:last-child{border-right:0}
+.rm-stats .n{font-family:var(--display);font-weight:800;font-variation-settings:"wdth" 110;font-size:clamp(26px,2.8vw,40px);line-height:1}
+.rm-stats .l{font-size:13.5px;color:var(--ink-2);margin-top:6px}
+.rm{border:1px solid var(--ink);border-radius:6px;overflow:hidden;background:#0A0C0F}
+.rm-tabs{display:flex;gap:2px;overflow-x:auto;padding:8px;background:#12151A;scrollbar-width:thin}
+.rm-tabs button{all:unset;cursor:pointer;font-family:var(--mono);font-size:12px;color:#9AA3AD;padding:7px 12px;border-radius:3px;white-space:nowrap}
+.rm-tabs button:hover{color:#fff}
+.rm-tabs button[aria-selected="true"]{background:#1E242B;color:#fff;box-shadow:inset 0 -2px 0 var(--papaya)}
+.rm-tabs button:focus-visible{outline:2px solid var(--papaya)}
+.rm-frame{margin:0}
+.rm-frame img{width:100%;aspect-ratio:1600/979;object-fit:cover;object-position:top;background:#0A0C0F}
+.rm-frame .cap{color:#AEB5BD;padding:12px 14px 14px;margin:0;border-top:1px solid #1E242B}
+.vd{display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(20px,4vw,48px);align-items:start}
+.vd-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.vd-grid figure{margin:0;border:1px solid var(--line);border-radius:4px;padding:10px;background:#fff}
+.vd-grid figure.wide{grid-column:1/-1}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);text-align:left;font-weight:600;padding:10px 12px 10px 0;border-bottom:1px solid var(--ink)}
+td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:middle}
+.table-wrap{overflow-x:auto}
+.pill{display:inline-block;font-family:var(--mono);font-size:11.5px;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.pill.done{background:var(--isc-wash);color:var(--isc)}
+.pill.wip{background:var(--papaya-wash);color:var(--papaya-ink)}
+.pill.plan{background:var(--wash);color:var(--ink-3)}
+.courses{margin-top:clamp(40px,5vw,64px);display:grid;gap:14px;max-width:820px}
+@media screen and (max-width:980px){.tblock-head,.vd{grid-template-columns:1fr}.rm-stats{grid-template-columns:1fr 1fr}.rm-stats div:nth-child(2){border-right:0}.rm-stats div:nth-child(3){padding-left:0}}
+@media screen and (max-width:520px){.vd-grid{grid-template-columns:1fr}}
+
+.rm-all{display:none}
+@media print{
+  @page{size:A4;margin:12mm 12mm 14mm}
+  html,body{background:#fff!important}
+  body{font-size:12.5px}
+  .lede{font-size:14px}
+  .stat .n{font-size:34px}
+  .cap{font-size:9.5px}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .progress,nav.top,.screen-only,.hs-rail,.bp-steps,.rm,.stage,.seg,.copy,.team-hint,.team-meta .hint{display:none!important}
+  :root{--nav:0px}
+  .wrap{max-width:none;padding-inline:0}
+  section.block,.hs-intro{padding-block:28px}
+  .hero{padding-block:0 20px}
+  .hero-grid{grid-template-columns:1.1fr .9fr}
+  .hero h1{font-size:54px}
+  .hero-fig{max-height:110mm;aspect-ratio:3/4}
+  .hero-fig img{transform:none!important}
+  .sec-head h2{font-size:34px}
+  .phil{grid-template-columns:1fr}
+  .phil-quote{position:static}
+  .phil-quote blockquote{font-size:30px}
+  .me-strip img{max-height:70mm}
+  .teams{grid-template-columns:1fr 1fr}
+  .team-btn{min-height:0;padding:16px}
+  .floaty{animation:none}
+  .team-panel,.team-panel[hidden]{display:block!important;break-inside:avoid-page}
+  .hs-pin,.bp-pin{height:auto!important}
+  .hs-sticky,.bp-sticky{position:static;height:auto;overflow:visible;display:block}
+  .hs-track{flex-direction:column;transform:none!important}
+  .car{flex:none;height:auto;display:grid;grid-template-columns:.9fr 1.1fr;padding:18px 0;border-top:1px solid var(--line);break-inside:avoid-page}
+  .car-copy{overflow:visible}
+  .car-id{font-size:64px}
+  .car-media{height:80mm}
+  .car-copy{font-size:12px}
+  .bp-head{padding:0 0 10px}
+  .bp-stage{background:none;overflow:visible}
+  .bp-img{position:static;transform:none!important;width:100%;max-width:none}
+  .bp-note{position:static;max-width:none;margin-top:10px}
+  .bp-after{padding-block:20px}
+  .build-grid{grid-template-columns:repeat(4,1fr)}
+  .build-grid figure{break-inside:avoid}
+  .build-grid img{aspect-ratio:4/5}
+  .thesis-top,.scrolly,.compare,.tool,.letter,.tblock-head{grid-template-columns:1fr}
+  .steps{display:grid;gap:0}
+  .step{min-height:0;opacity:1;padding-block:12px;border-bottom:1px solid var(--line);break-inside:avoid-page;display:grid;grid-template-columns:1fr 1fr;column-gap:18px;align-items:center;justify-content:start}
+  .step>*:not(.inline){grid-column:1}
+  .step .inline{display:block;grid-column:2;grid-row:1/span 6}
+  .step .inline img{max-height:70mm;width:auto;margin-inline:auto}
+  .bar .f{transition:none}
+  .sketch-grid{grid-template-columns:repeat(3,1fr)}
+  .sketch-grid figure{grid-column:span 1!important;grid-row:auto!important;break-inside:avoid}
+  .slogan{grid-template-columns:repeat(3,1fr)}
+  .rm-all{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .rm-all figure{margin:0;break-inside:avoid-page}
+  .rm-all img{width:100%;border:1px solid var(--ink);border-radius:4px}
+  .tool-shots .shot,.spec div{break-inside:avoid}
+  .skills{grid-template-columns:repeat(3,1fr)}
+  .contact{break-inside:avoid-page;padding-block:32px}
+  .contact h2{font-size:48px}
+  figure,img{break-inside:avoid}
+  h2,h3,.sec-head{break-after:avoid}
+  #about,#teams,#isc,#ifs08,#thesis,#concept,#tools,#whyme,#contact{break-before:page}
+  .courses,.edu article,.letter{break-inside:avoid}
+  .c-grid{grid-template-columns:1fr 1fr}
+}
+
+/* responsive */
+@media screen and (max-width:980px){
+  .hero-grid,.phil,.thesis-top,.scrolly,.compare,.tool,.letter{grid-template-columns:1fr}
+  .phil-quote{position:static}
+  .hero-fig{aspect-ratio:4/5;max-height:none}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat{border-bottom:1px solid var(--line)}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(3){padding-left:0}
+  .why,.skills,.wip{grid-template-columns:1fr}
+  .why article,.why article+article{padding:22px 0;border-right:0;border-bottom:1px solid var(--line)}
+  .stage{display:none}
+  .step{min-height:auto;opacity:1;padding-block:28px;border-bottom:1px solid var(--line)}
+  .step .inline{display:block}
+  .c-grid{grid-template-columns:1fr 1fr}
+  .build-grid{grid-template-columns:1fr 1fr}
+  .edu{grid-template-columns:1fr}
+}
+@media screen and (max-width:860px){
+  .hs-pin{height:auto!important}
+  .hs-sticky{position:static;height:auto;overflow:visible}
+  .hs-rail{display:none}
+  .hs-track{flex-direction:column;transform:none!important}
+  .car{flex:none;height:auto;grid-template-columns:1fr;padding-block:40px;border-top:1px solid var(--line)}
+  .car-copy{overflow:visible}
+  .car-media{height:520px}
+  .teams{grid-template-columns:1fr}
+  .role{grid-template-columns:1fr;gap:8px}
+  .value{grid-template-columns:1fr;gap:6px}
+  .sketch-grid{grid-template-columns:1fr 1fr}
+  .sketch-grid figure{grid-column:span 1!important;grid-row:auto!important}
+  .slogan{grid-template-columns:1fr}
+  .shot-row{grid-template-columns:1fr}
+  .me-strip{grid-template-columns:1fr 1fr}
+  .me-strip figure:first-child{grid-column:1/-1}
+  .bar{grid-template-columns:110px 1fr 76px}
+  .bp-pin{height:320vh}
+  .bp-note{right:var(--gutter);max-width:none}
+  .bp-steps{top:12px;bottom:auto}
+}
+@media screen and (max-width:520px){
+  .c-grid{grid-template-columns:1fr}
+  .car-media{height:420px}
+  .spec div{grid-template-columns:1fr;gap:2px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .floaty,.wip .status::before{animation:none}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<nav class="top" aria-label="Sections">
+  <div class="wrap">
+    <a class="brand" href="#top">M. MEDINA<span>.</span></a>
+    <div class="links" id="links">
+      <a href="#about">About</a>
+      <a href="#teams">Teams</a>
+      <a href="#isc">ISC</a>
+      <a href="#ifs08">IFS-08</a>
+      <a href="#thesis">Thesis</a>
+      <a href="#concept">Concept</a>
+      <a href="#tools">Tools</a>
+      <a href="#whyme">Why me</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Engineering portfolio · <b>McLaren Racing, Structural Design</b></p>
+        <h1>Less mass.<br>More stiffness.<br><em>Every iteration.</em></h1>
+        <div class="who">
+          <p class="name">Miguel Ángel Medina Lazcano</p>
+          <p class="lede">MSc Industrial Engineering (Mechanical) at ICAI, Madrid. Junior CAE Engineer at Managing Composites, working on composite laminates, material model calibration and optimisation. Four seasons of Formula Student before that, from the chassis bay to Managing Director.</p>
+          <div class="chips">
+            <span class="chip hot">Available January 2027</span>
+            <span class="chip">Willing to relocate</span>
+            <span class="chip">HyperMesh · OptiStruct · LS-Dyna</span>
+            <span class="chip">Python · MATLAB</span>
+          </div>
+        </div>
+      </div>
+      <figure class="hero-fig" style="margin:0">
+        <img id="heroImg" src="img/hero_e14.jpg" alt="The ISC IFS-08, car E14, in dark green and yellow on track at the Red Bull Ring" fetchpriority="high">
+        <figcaption>IFS-08 · Formula Student Austria · Red Bull Ring · July 2026</figcaption>
+      </figure>
+    </div>
+
+    <div class="stats" aria-label="Headline numbers">
+      <div class="stat"><div class="n mono">−65<small>%</small></div><p class="l">Monocoque mass against the initial laminate, after optimisation (BSc thesis, graded 10/10)</p></div>
+      <div class="stat"><div class="n mono">+50<small>%</small></div><p class="l">Torsional stiffness over the same initial laminate (+49.1% before rounding)</p></div>
+      <div class="stat"><div class="n mono">−40<small>kg</small></div><p class="l">Vehicle mass saved by a two-year clean-sheet concept change</p></div>
+      <div class="stat"><div class="n mono">80+</div><p class="l">Team members led as Managing Director, across 2 electric prototypes and 4 competitions</p></div>
+    </div>
+  </div>
+</header>
+
+<!-- ABOUT / PHILOSOPHY -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">01 · Who I am</p>
+      <h2>An engineer who keeps going back for one more iteration.</h2>
+    </div>
+    <div class="phil">
+      <div class="phil-quote">
+        <blockquote>“There is always a way to go further.”</blockquote>
+        <p class="cap src">McLaren’s founding philosophy, as stated on <a href="https://www.mclaren.com/racing/2026/mclaren-announces-evolved-identity/" target="_blank" rel="noopener">mclaren.com</a>. It also describes how I work.</p>
+      </div>
+      <div class="values">
+        <div class="value">
+          <span class="tag">Go further</span>
+          <div>
+            <h3>Set the target, then beat it</h3>
+            <p>My BSc thesis set a target of 4,000 Nm/deg of torsional stiffness at about 20 kg, to be reached in the three months a Formula Student season leaves free. The final CFRP laminate came out at 19.78 kg and 4,089 Nm/deg, ahead of both targets.</p>
+          </div>
+        </div>
+        <div class="value">
+          <span class="tag">Pioneering</span>
+          <div>
+            <h3>Carbon, since the MP4/1</h3>
+            <p>McLaren raced the first carbon-fibre composite monocoque in Formula 1 in 1981. My thesis cites the MP4/1 as the starting point of the composite monocoque. Today I size carbon laminates for a living, and I want to learn how that is done at the level where it started.</p>
+          </div>
+        </div>
+        <div class="value">
+          <span class="tag">Together</span>
+          <div>
+            <h3>Win and lose as a team</h3>
+            <p>McLaren talks openly about a <a href="https://fortune.com/2025/03/07/no-blame-culture-helped-mclaren-ceo-zak-brown-win-first-major-championship-20-years/" target="_blank" rel="noopener">no-blame culture</a>, where the team wins and loses together. In Formula Student I led more than 80 people through late nights, the good times and the bad. I built the ISC Academy so that new members learn from the ones before them.</p>
+            <p>I’m entry level and I know it. I want to learn from the engineers around me, and I will add value from the first week.</p>
+          </div>
+        </div>
+        <div class="value">
+          <span class="tag">Off track</span>
+          <div>
+            <h3>What keeps me sharp</h3>
+            <p>Judo, tennis and skiing keep me disciplined. Travelling, and studying abroad in Dallas and Dublin, taught me to adapt quickly. I follow the engineering side of Formula 1, especially concept design, packaging, structural simulation and composite design.</p>
+            <div class="interests">
+              <span class="chip">Judo</span><span class="chip">Tennis</span><span class="chip">Skiing</span><span class="chip">Travelling</span><span class="chip">Music</span><span class="chip">F1 engineering</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="me-strip">
+      <figure><img src="img/p_workshop.jpg" alt="Two team members working on the IFS-08 with its bodywork fitted in the ISC workshop" loading="lazy"><figcaption class="cap">The ISC workshop. Most of the season happens here.</figcaption></figure>
+      <figure><img src="img/p_trophy.jpg" alt="Miguel holding a trophy in front of an Italian Embassy backdrop" loading="lazy"><figcaption class="cap">Italian Embassy, Madrid · September 2026</figcaption></figure>
+      <figure><img src="img/p_ski.jpg" alt="Miguel skiing in heavy snow" loading="lazy"><figcaption class="cap">Off the clock: skiing</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- TEAMS -->
+<section class="block" id="teams">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">02 · Into motorsport</p>
+      <h2>Two teams got me here.</h2>
+      <p class="lede">Formula Student gave me the whole car. Managing Composites gave me the structures. <span class="screen-only">Select either logo to see what I did there.</span></p>
+    </div>
+    <div class="teams" id="teamsGrid">
+      <button class="team-btn" aria-expanded="false" aria-controls="panel-isc" data-panel="panel-isc">
+        <div class="floaty"><img class="isc-logo" src="img/isc_logo.jpg" alt="ISC Formula Student Racing Team logo"></div>
+        <div class="team-meta"><strong>ISC FS Racing Team</strong><span>Universidad Pontificia Comillas · 2022 – 2026</span><br><span class="hint">Show my roles ↓</span></div>
+      </button>
+      <button class="team-btn" aria-expanded="false" aria-controls="panel-mc" data-panel="panel-mc">
+        <div class="floaty"><img class="mc-logo" src="img/mc_logo.png" alt="Managing Composites logo"></div>
+        <div class="team-meta"><strong>Managing Composites</strong><span>Madrid · Jun 2026 – Dec 2026</span><br><span class="hint">Show my work ↓</span></div>
+      </button>
+
+      <div class="team-panel" id="panel-isc" hidden>
+        <div class="roles">
+          <div class="role">
+            <div><h4>Mechanical Technical Director</h4><p class="when">Sep 2025 – Aug 2026 · IFS-08</p></div>
+            <ul>
+              <li>Led the mechanical technical direction of the team, setting design, manufacturing and assembly standards for reliability and performance.</li>
+              <li>Led the design of the car and coordinated work across chassis, suspension, aerodynamics, powertrain and HV/LV integration.</li>
+              <li>Specialised in structural composites FEA through the CFRP monocoque optimisation of my BSc thesis: −65% mass and +50% torsional stiffness.</li>
+            </ul>
+          </div>
+          <div class="role">
+            <div><h4>Managing Director</h4><p class="when">Apr 2023 – Sep 2025 · IFS-06, IFS-07</p></div>
+            <ul>
+              <li>Led end-to-end development of two electric prototypes, from concept definition through manufacturing and validation to competition at FSG 2024, FS ATA 2024, FSS 2024 and FSS 2025.</li>
+              <li>Framed a two-year concept change from scratch: −40 kg of vehicle mass and a complex aerodynamic package. The car passed scrutineering and completed all dynamic events.</li>
+              <li>Coordinated an 80+ member multidisciplinary team, supported finance, marketing and operations, and aligned everyone on the design freeze and manufacturing calendar.</li>
+              <li>Directed logistics and transport for competitions in Italy, Germany and Spain.</li>
+              <li>Led recruitment across both seasons by creating the ISC Academy: graphic material, tailored classes and guided projects for each department.</li>
+            </ul>
+          </div>
+          <div class="role">
+            <div><h4>Chassis &amp; Structural Member</h4><p class="when">Aug 2022 – Mar 2023 · IFS-05</p></div>
+            <ul>
+              <li>Worked on the front suspension triangulation of the IFS-05 chassis and supported chassis assembly.</li>
+              <li>Prepared CAD models and technical drawings for chassis manufacturing and external suppliers.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="team-panel" id="panel-mc" hidden>
+        <div class="roles">
+          <div class="role">
+            <div><h4>Junior CAE Engineer</h4><p class="when">Jun 2026 – Dec 2026 · Composites engineering consultancy for motorsport and hypercar clients</p></div>
+            <ul>
+              <li>Developed a laminate search and optimisation tool in Python, based on classical laminate theory and first-ply-failure criteria. It solves for ply count, material selection, ply angles and laminate symmetry, so the CAE team can find lighter laminates that keep their mechanical properties. <a href="#tools">See the tool ↓</a></li>
+              <li>Calibrated a Rohacell 71-IG structural foam material model against experimental data in Altair HyperMesh with the LS-Dyna solver.</li>
+              <li>Optimised laminates for aerodynamic components and structural elements in OptiStruct, with bespoke modal and geometric constraints.</li>
+              <li>Supported the development of impact structures within the Zenvo development programme.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ISC CHRONOLOGY (horizontal) -->
+<section class="hs" id="isc">
+  <div class="wrap hs-intro">
+    <div class="sec-head" style="margin-bottom:0">
+      <p class="eyebrow">03 · ISC FS Racing Team · 4 seasons, 4 cars</p>
+      <h2>From chassis engineer to technical director.</h2>
+      <p class="lede"><span class="screen-only">Scroll to follow the cars in order. </span>Each one is where my responsibility grew.</p>
+    </div>
+  </div>
+  <div class="hs-pin" id="hsPin">
+    <div class="hs-sticky">
+      <div class="hs-rail" id="hsRail" aria-label="Jump to car">
+        <button data-i="0">IFS-05 · 22/23</button>
+        <button data-i="1">IFS-06 · 23/24</button>
+        <button data-i="2">IFS-07 · 24/25</button>
+        <button data-i="3">IFS-08 · 25/26</button>
+      </div>
+      <div class="hs-track" id="hsTrack">
+        <!-- IFS-05 -->
+        <article class="car">
+          <div class="car-copy">
+            <div class="car-id">IFS-05</div>
+            <p class="season">Season 2022 / 23 · Where it started</p>
+            <span class="me-role">My role · Chassis &amp; Structural Member</span>
+            <h3>Learning the car one tube at a time</h3>
+            <p>My first season. I joined the chassis department and worked on the steel spaceframe that carried every other system on the car.</p>
+            <ul>
+              <li>Worked on the front suspension triangulation of the chassis.</li>
+              <li>Prepared CAD models and technical drawings for manufacturing and external suppliers.</li>
+              <li>Supported chassis assembly in the workshop.</li>
+            </ul>
+          </div>
+          <div class="car-media">
+            <figure><img src="img/ifs05_front.jpg" alt="IFS-05, car 133, front view with driver seated" loading="lazy"><figcaption>IFS-05 · October 2023</figcaption></figure>
+            <figure><img src="img/ifs05_track.jpg" alt="IFS-05 on track at speed" loading="lazy"><figcaption>On track · Circuit de Barcelona-Catalunya · Aug 2023</figcaption></figure>
+            <figure><img src="img/ifs05_tilt.jpg" alt="IFS-05 on the tilt table during scrutineering" loading="lazy"><figcaption>Tilt test at scrutineering · Aug 2023</figcaption></figure>
+          </div>
+        </article>
+        <!-- IFS-06 -->
+        <article class="car">
+          <div class="car-copy">
+            <div class="car-id">IFS-06</div>
+            <p class="season">Season 2023 / 24 · First podiums</p>
+            <span class="me-role">My role · Managing Director</span>
+            <h3>Keep the concept, take it abroad</h3>
+            <p>We kept the concept of the car and took it abroad. That season the team travelled to Germany for FSG and took its first podiums.</p>
+            <ul>
+              <li>Guided the concept development through the whole season.</li>
+              <li>Competitions: FSG 2024 (Germany), FS ATA 2024 (Italy), FSS 2024 (Spain).</li>
+              <li>Directed logistics and transport for all three events.</li>
+              <li>Set the calendar and design freeze that the whole team worked to.</li>
+            </ul>
+          </div>
+          <div class="car-media">
+            <figure><img src="img/ifs06_ata_team.jpg" alt="The ISC team posing with the IFS-06 under the Formula ATA arch" loading="lazy"><figcaption>Team and IFS-06 · Formula ATA, Italy · Sep 2024</figcaption></figure>
+            <figure><img src="img/ifs06_podium.jpg" alt="Team members celebrating with a trophy and the Spanish flag" loading="lazy"><figcaption>Celebrating with the team · Sep 2024</figcaption></figure>
+            <figure><img src="img/ifs06_cockpit.jpg" alt="Miguel sitting in the IFS-06 chassis in the workshop" loading="lazy"><figcaption>In the IFS-06 chassis · Mar 2024</figcaption></figure>
+          </div>
+        </article>
+        <!-- IFS-07 -->
+        <article class="car">
+          <div class="car-copy">
+            <div class="car-id">IFS-07</div>
+            <p class="season">Season 2024 / 25 · A whole new concept</p>
+            <span class="me-role">My role · Managing Director</span>
+            <h3>Clean sheet, 40 kg lighter</h3>
+            <p>I framed a two-year concept change from scratch and led the team to a whole new concept, adding a complex aerodynamic package.</p>
+            <ul>
+              <li>−40 kg of vehicle mass across the concept change.</li>
+              <li>Competed at FSS 2025. The car passed scrutineering and completed all dynamic events.</li>
+              <li>Created the ISC Academy to recruit and train the next generation of members.</li>
+            </ul>
+          </div>
+          <div class="car-media">
+            <figure><img src="img/ifs07_pres.jpg" alt="IFS-07 in dark green and orange at speed during testing" loading="lazy"><figcaption>IFS-07 during testing</figcaption></figure>
+            <figure><img src="img/ifs07_jig.jpg" alt="IFS-07 steel spaceframe in the welding jig" loading="lazy"><figcaption>New chassis in the jig · Feb 2025</figcaption></figure>
+            <figure><img src="img/ifs07_talk.jpg" alt="Miguel presenting the ISC team and its values to an audience" loading="lazy"><figcaption>Presenting the team and its values · Mar 2025</figcaption></figure>
+          </div>
+        </article>
+        <!-- IFS-08 -->
+        <article class="car">
+          <div class="car-copy">
+            <div class="car-id solid">IFS-08</div>
+            <p class="season">Season 2025 / 26 · The whole mechanical design</p>
+            <span class="me-role">My role · Mechanical Technical Director</span>
+            <h3>My last car, and my most complete</h3>
+            <p>I led the mechanical design of the whole car and wrote my BSc thesis in three months alongside the season.</p>
+            <ul>
+              <li>Chassis manufactured at the Gestamp Toledo plant with Fundación Gestamp.</li>
+              <li>Launched on 13 July 2026 in the Aula Magna of ICADE.</li>
+              <li>Back-to-back competitions: passed full scrutineering and ran most of the dynamic events.</li>
+            </ul>
+            <p><a href="#ifs08">Open the blueprint ↓</a></p>
+          </div>
+          <div class="car-media">
+            <figure><img src="img/ifs08_rbr3.jpg" alt="The whole IFS-08, car E14, cornering at FS Austria" loading="lazy"><figcaption>E14 on track · FS Austria · Jul 2026</figcaption></figure>
+            <figure><img src="img/ifs08_garage.jpg" alt="The complete IFS-08 on a stand in the garage" loading="lazy"><figcaption>The finished IFS-08 · Jul 2026</figcaption></figure>
+            <figure><img src="img/ifs08_fss.jpg" alt="The team posing with the IFS-08 in the pit lane under the Formula Student Spain tower" loading="lazy"><figcaption>Team and IFS-08 · Formula Student Spain · Aug 2026</figcaption></figure>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IFS-08 BLUEPRINT -->
+<section class="bp" id="ifs08">
+  <div class="bp-pin" id="bpPin">
+    <div class="bp-sticky">
+      <div class="bp-head">
+        <div>
+          <p class="eyebrow">04 · IFS-08 · General assembly</p>
+          <h2>The whole car, in one drawing.</h2>
+        </div>
+        <p class="cap" style="margin:0">General assembly, top view<span class="screen-only"> · scroll to zoom in</span></p>
+      </div>
+      <div class="bp-stage">
+        <img class="bp-img" id="bpImg" src="img/blueprint2.jpg" alt="Top-view line drawing of the IFS-08 general assembly, showing the spaceframe chassis, both suspension corners, the aerodynamic elements and the rear drivetrain">
+        <div class="bp-note" id="bpNote" aria-live="polite">
+          <p class="k" id="bpK">Overview</p>
+          <h3 id="bpH">One car, every system</h3>
+          <p id="bpP">As Mechanical Technical Director I coordinated chassis, suspension, aerodynamics, powertrain and HV/LV integration into one assembly.</p>
+        </div>
+        <div class="bp-steps" id="bpSteps" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap bp-after">
+    <div class="sec-head">
+      <p class="eyebrow">From drawing to track</p>
+      <h2>Built, launched, raced.</h2>
+    </div>
+    <div class="build-grid">
+      <figure><img src="img/ifs08_jig.jpg" alt="IFS-08 chassis tubes held in the welding jig" loading="lazy"><figcaption class="cap">Chassis in the jig · Feb 2026</figcaption></figure>
+      <figure><img src="img/ifs08_gestamp.jpg" alt="IFS-08 steel chassis on a jig inside an industrial plant" loading="lazy"><figcaption class="cap">Manufacturing at Gestamp Toledo · Mar 2026</figcaption></figure>
+      <figure><img src="img/ifs08_painted.jpg" alt="Painted green IFS-08 chassis in the workshop" loading="lazy"><figcaption class="cap">Painted chassis · Mar 2026</figcaption></figure>
+      <figure><img src="img/ifs08_susp.jpg" alt="IFS-08 front suspension with wheels fitted to the chassis" loading="lazy"><figcaption class="cap">Front suspension fitted · Apr 2026</figcaption></figure>
+      <figure class="wide"><img src="img/ifs08_render.jpg" alt="Render of the IFS-08 with carbon aerodynamic package" loading="lazy"><figcaption class="cap">IFS-08 render with the aero package</figcaption></figure>
+      <figure><img src="img/ifs08_detail.jpg" alt="Close view of IFS-08 rear suspension, dampers and bodywork during assembly" loading="lazy"><figcaption class="cap">Assembly detail</figcaption></figure>
+      <figure><img src="img/ifs08_shake.jpg" alt="IFS-08 running in a car park during early testing" loading="lazy"><figcaption class="cap">First runs · Jun 2026</figcaption></figure>
+      <figure><img src="img/ifs08_rbr2.jpg" alt="IFS-08 at speed on the Red Bull Ring paddock course" loading="lazy"><figcaption class="cap">FS Austria · Jul 2026</figcaption></figure>
+      <figure><img src="img/ifs08_push.jpg" alt="Team members pushing the IFS-08 with Red Bull arch behind" loading="lazy"><figcaption class="cap">Red Bull Ring paddock · Jul 2026</figcaption></figure>
+      <figure><img src="img/ifs08_rbr3.jpg" alt="IFS-08 cornering in front of the fencing" loading="lazy"><figcaption class="cap">Dynamic event · FS Austria</figcaption></figure>
+      <figure><img src="img/ifs08_team.jpg" alt="The ISC team posing with the IFS-08 on the start straight" loading="lazy"><figcaption class="cap">The team, Aug 2026</figcaption></figure>
+    </div>
+    <p class="lede" style="margin-top:28px">“I say goodbye to the ISC Racing Team satisfied after completing back-to-back competitions, passing full scrutineering and taking part in most of the dynamic events.” <span class="cap" style="display:inline">— my LinkedIn post, August 2026</span></p>
+  </div>
+</section>
+
+<!-- THESIS -->
+<section class="block" id="thesis">
+  <div class="wrap">
+    <div class="thesis-top">
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="eyebrow">05 · BSc thesis · ICAI</p>
+        <h2>Design and simulation of a CFRP monocoque for a Formula Student car.</h2>
+        <p class="lede">Altair HyperMesh with the OptiStruct solver. Written in three months, alongside the IFS-08 season, to give the team a complete knowledge base for its first composite chassis.</p>
+      </div>
+      <div class="grade">
+        <p class="eyebrow">Grade</p>
+        <p class="big mono">10<small>/10</small></p>
+        <p style="font-size:14px;color:var(--ink-2)">Supervisor: Ángel Rubio López · <a href="https://repositorio.comillas.edu/items/cddce7c2-6505-4c7f-b766-fd1562fdf6e1" target="_blank" rel="noopener">Read it in the Comillas repository ↗</a></p>
+      </div>
+    </div>
+
+    <div class="scrolly">
+      <div class="steps" id="steps">
+        <div class="step on" data-fig="0">
+          <p class="k">Problem &amp; objectives</p>
+          <h3>4,000 Nm/deg at about 20 kg.</h3>
+          <p>The IFS-07 ran a steel tubular spaceframe of about 38.5 kg with a torsional stiffness of around 2,300 Nm/deg. For four years, final-degree projects had approached a monocoque for the team. This one set out to close the loop. The objectives:</p>
+          <ul><li>Design a rule-compliant monocoque to the Formula Student rules.</li><li>Reach 4,000 Nm/deg at roughly 20 kg.</li><li>Leave the team a working method for composite optimisation.</li></ul>
+          <figure class="inline"><img src="img/ifs07_jig.jpg" alt="IFS-07 steel spaceframe in the jig" loading="lazy"></figure>
+        </div>
+        <div class="step" data-fig="1">
+          <p class="k">Design · SolidWorks</p>
+          <h3>A surface built around the rules</h3>
+          <p>Cockpit and internal cross-section templates, the Percy driver template and hoop positions set the minimum geometry. The IFS-07 suspension points were kept and checked in Optimum Kinematics, so existing sizing calculations stayed valid.</p>
+          <figure class="inline"><img src="img/tfg_surface.jpg" alt="Monocoque surface with main hoop" loading="lazy"></figure>
+        </div>
+        <div class="step" data-fig="2">
+          <p class="k">Model · HyperMesh</p>
+          <h3>Mesh, materials and load paths</h3>
+          <ul>
+            <li>Shell mesh with a 5 mm target element size.</li>
+            <li>Suspension links modelled as 1D bars, with loads carried into the tub through RBE2 elements.</li>
+            <li>Sandwich laminate: Gurit carbon plies (IMC unidirectional, RC200T 0/90 and XC411 ±45 cloth) over a Dura-Core II 5052 aluminium honeycomb core.</li>
+          </ul>
+          <figure class="inline"><img src="img/tfg_model.jpg" alt="HyperMesh model of the monocoque with suspension" loading="lazy"></figure>
+        </div>
+        <div class="step" data-fig="3">
+          <p class="k">Process tree</p>
+          <h3>Free-size, size, then shape the plies</h3>
+          <p>For every load step (main hoop, front hoop, TSAC, harness, suspension and impact), free-size optimisation minimises compliance under a volume-fraction constraint. Sizing optimisation then minimises mass with the Hill failure criterion kept below 1. The ply shapes that come out are redrawn into manufacturable, balanced plies before the final analyses.</p>
+          <figure class="inline"><img src="img/tfg_tree.jpg" alt="Optimisation process flowchart" loading="lazy"></figure>
+        </div>
+        <div class="step" data-fig="4">
+          <p class="k">Optimisation results</p>
+          <h3>Let the loads draw the laminate</h3>
+          <p>Free-size results show where material is needed for each load case. The thickness contours become ply sets, which I redrew into seven ply shapes.</p>
+          <figure class="inline"><img src="img/tfg_thick.jpg" alt="Element thickness contour plot" loading="lazy"></figure>
+        </div>
+        <div class="step" data-fig="5">
+          <p class="k">Iteration</p>
+          <h3>Seven laminates to the final one</h3>
+          <p>The first monocoque laminate weighed 56.88 kg at 2,742.66 Nm/deg. I iterated ply order, honeycomb thickness and material per ply. Laminate 007, the final one, lands at 19.78 kg and 4,089 Nm/deg: 31 plies in 7 shapes.</p>
+          <figure class="inline"><img src="img/tfg_iter.jpg" alt="Laminate iterations chart of stiffness against weight" loading="lazy"></figure>
+        </div>
+        <div class="step" data-fig="6">
+          <p class="k">Validation</p>
+          <h3>Torsion, and every rule load case</h3>
+          <p>Rotation along the car rises where the cockpit opening begins, because torsion needs closed box sections to carry shear. Rule load cases were checked with the Hill criterion:</p>
+          <ul><li>Main hoop: 30 kN in x, y and z.</li><li>TSAC: 19 kN in x and y, 9.5 kN in z.</li><li>Front impact: 20 kN (250 kg at 8 g). Side impact: 7.5 kN perimeter shear.</li><li>Harness and anti-submarine loads.</li></ul>
+          <p>Where it flagged stress concentrations, at the cockpit edge and the anti-intrusion plate, the thesis recommends fillets for the next iteration.</p>
+          <figure class="inline"><img src="img/tfg_rot.jpg" alt="Rotation along the chassis length" loading="lazy"></figure>
+        </div>
+        <div class="step" data-fig="7">
+          <p class="k">Final laminate</p>
+          <h3>31 plies, 7 shapes, 19.78 kg</h3>
+          <p>The final layup across the monocoque. Manufacturability was considered when defining the ply shapes. A full manufacturing study is the next step for the team.</p>
+          <figure class="inline"><img src="img/tfg_final.jpg" alt="Final laminate zone distribution on the monocoque" loading="lazy"></figure>
+        </div>
+      </div>
+
+      <div class="stage" id="stage" aria-hidden="true">
+        <figure class="on"><img src="img/ifs07_jig.jpg" alt="" style="object-fit:cover"><figcaption class="cap">The baseline: the IFS-07 steel spaceframe, 38.5 kg and about 2,300 Nm/deg</figcaption></figure>
+        <figure><img src="img/tfg_surface.jpg" alt=""><figcaption class="cap">Final monocoque surface, designed to FS rules</figcaption></figure>
+        <figure><div class="pair"><img src="img/tfg_model.jpg" alt=""><img src="img/tfg_mesh.jpg" alt=""></div><figcaption class="cap">HyperMesh model with 1D suspension · 2D shell mesh</figcaption></figure>
+        <figure><img src="img/tfg_tree.jpg" alt=""><figcaption class="cap">Optimisation process tree: free-size → sizing → ply generation → final analyses</figcaption></figure>
+        <figure><div class="pair"><img src="img/tfg_free.jpg" alt=""><img src="img/tfg_thick.jpg" alt=""></div><figcaption class="cap">Free-size result for one load step · element thickness contour</figcaption></figure>
+        <figure><img src="img/tfg_iter.jpg" alt=""><figcaption class="cap">Laminate iterations: torsional stiffness against weight</figcaption></figure>
+        <figure><div class="pair"><img src="img/tfg_disp.jpg" alt=""><img src="img/tfg_rot.jpg" alt=""></div><figcaption class="cap">Torsion load case displacement · rotation along the chassis length</figcaption></figure>
+        <figure><div class="pair"><img src="img/tfg_final.jpg" alt=""><img src="img/tfg_final_top.jpg" alt=""></div><figcaption class="cap">Final laminate zones, isometric and top view</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="compare">
+      <div>
+        <p class="eyebrow">Result</p>
+        <h3 style="font-size:clamp(26px,2.8vw,38px);font-weight:780;font-variation-settings:'wdth' 106;margin-top:10px">Two honest baselines</h3>
+        <p style="color:var(--ink-2);margin-top:10px;max-width:46ch">Against the first monocoque laminate, optimisation gave −65% mass and +49% stiffness. Against the IFS-07 steel spaceframe the team actually raced, the final monocoque is −48.7% mass and +77.7% stiffness.</p>
+        <div class="seg" role="group" aria-label="Compare the final monocoque against">
+          <button type="button" id="cmpA" aria-pressed="true">Initial laminate</button>
+          <button type="button" id="cmpB" aria-pressed="false">IFS-07 steel frame</button>
+        </div>
+      </div>
+      <div class="bars" id="bars">
+        <div class="metric">
+          <h4><span>Mass · kg</span><span class="delta" id="dM">−65.2%</span></h4>
+          <div class="bar"><span id="lM">Initial laminate</span><div class="t"><div class="f" id="bM0"></div></div><span class="v" id="vM0">56.88</span></div>
+          <div class="bar final"><span>Final laminate 007</span><div class="t"><div class="f" id="bM1"></div></div><span class="v">19.78</span></div>
+        </div>
+        <div class="metric">
+          <h4><span>Torsional stiffness · Nm/deg</span><span class="delta" id="dK">+49.1%</span></h4>
+          <div class="bar"><span id="lK">Initial laminate</span><div class="t"><div class="f" id="bK0"></div></div><span class="v" id="vK0">2,742.66</span></div>
+          <div class="bar final"><span>Final laminate 007</span><div class="t"><div class="f" id="bK1"></div></div><span class="v">4,089.04</span></div>
+        </div>
+        <p class="foot-note">All figures are from the thesis simulations (OptiStruct, linear static). The monocoque is virtual: no part was manufactured.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCEPT / MERCH -->
+<section class="block" id="concept">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">06 · Design &amp; vehicle concept · IFS-07 and IFS-08</p>
+      <h2>Every car started on paper.</h2>
+      <p class="lede">My concept sketches for the IFS-07 and IFS-08: packaging, aero surfaces and structural details. The team later turned them into its merchandise, so the concept travelled with every member.</p>
+    </div>
+    <div class="sketch-grid">
+      <figure class="s-a"><img src="img/sk_ifs07_plan.jpg" alt="Hand sketch of the IFS-07 in top and side view with annotations" loading="lazy"><figcaption class="cap">IFS-07 concept, top and side views</figcaption></figure>
+      <figure class="s-b"><img src="img/sk_creation.jpg" alt="Sketch titled The creation of IFS-07 showing the evolution from the IFS-06" loading="lazy"><figcaption class="cap">“The creation of IFS-07”, starting from the IFS-06 aero</figcaption></figure>
+      <figure class="s-c"><img src="img/sk_aero.jpg" alt="Sketch of aerodynamic concept with sidepods and wings" loading="lazy"><figcaption class="cap">Aerodynamic packaging</figcaption></figure>
+      <figure class="s-d"><img src="img/sk_venturi.jpg" alt="Sketch of a floor with venturi channel" loading="lazy"><figcaption class="cap">Floor and venturi</figcaption></figure>
+      <figure class="s-e"><img src="img/sk_fwing.jpg" alt="Sketch of a front wing with sections and endplates" loading="lazy"><figcaption class="cap">Front wing sections</figcaption></figure>
+      <figure class="s-f"><img src="img/sk_bracket.jpg" alt="Sketch of a carbon fibre mounting bracket" loading="lazy"><figcaption class="cap">Carbon mounting points</figcaption></figure>
+      <figure class="s-d"><img src="img/sk_struct.jpg" alt="Sketch of structural members and mounting" loading="lazy"><figcaption class="cap">Structural member layout</figcaption></figure>
+      <figure class="s-e"><img src="img/sk_mounts.jpg" alt="Sketch of battery container mounts" loading="lazy"><figcaption class="cap">Mounting brackets and lateral forces</figcaption></figure>
+      <figure class="s-f"><img src="img/sk_sidepod.jpg" alt="Sketch of sidepod and suspension detail" loading="lazy"><figcaption class="cap">Aero detail</figcaption></figure>
+      <figure class="s-b"><img src="img/sk_p0.jpg" alt="Sketches of front wing endplates and flaps with an insert pull-out hand calculation" loading="lazy"><figcaption class="cap">Front wing elements and an insert pull-out hand calculation</figcaption></figure>
+      <figure class="s-c"><img src="img/sk_p1.jpg" alt="Rule-of-mixtures equations and triangular composite bracket sketches" loading="lazy"><figcaption class="cap">Rule of mixtures and composite brackets</figcaption></figure>
+      <figure class="s-b"><img src="img/sk_p2.jpg" alt="Perspective sketch of a sidepod and rear wheel" loading="lazy"><figcaption class="cap">Sidepod and wheel in perspective</figcaption></figure>
+      <figure class="s-c"><img src="img/sk_p4.jpg" alt="Sketches of chassis triangulation and a suspension bracket" loading="lazy"><figcaption class="cap">Chassis triangulation and brackets</figcaption></figure>
+      <figure class="s-b"><img src="img/sk_p3.jpg" alt="Plan views of the tub with numbered reference points" loading="lazy"><figcaption class="cap">Tub plan views with numbered reference points</figcaption></figure>
+      <figure class="s-c"><img src="img/sk_p5.jpg" alt="Plan layout of the car with suspension, cockpit and packaging notes" loading="lazy"><figcaption class="cap">Plan layout: suspension, cockpit and packaging</figcaption></figure>
+      <div class="slogan">
+        <figure><img src="img/sk_slogan.jpg" alt="Handwritten slogan: 07 – An odyssey to the impossible" loading="lazy"><figcaption class="cap">The IFS-07 season line</figcaption></figure>
+        <figure><img src="img/sk_133.jpg" alt="Hand-lettered car number 133" loading="lazy"><figcaption class="cap">Car number 133, hand-lettered</figcaption></figure>
+        <figure><img src="img/sk_logo.jpg" alt="Sketches of ISC lettering" loading="lazy"><figcaption class="cap">Lettering studies for the merch</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="block" id="tools">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">07 · Tools · Laminates and regulations</p>
+      <h2>Tools I build to answer engineering questions.</h2>
+    </div>
+    <div class="tool">
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px"><b>Managing Composites</b> · Python</p>
+        <h3 class="th" style="margin-bottom:16px">Laminate search and optimisation</h3>
+        <p class="lede">At Managing Composites I built a Python tool that screens thousands of candidate laminates against a baseline. It combines classical laminate theory with first-ply failure. Engineers get lighter layups that keep the bending, torsional and strength properties they need.</p>
+        <p style="margin-top:16px"><span class="redact">▮▮▮ All material data and results are blurred for confidentiality</span></p>
+        <dl class="spec">
+          <div><dt>Theory</dt><dd>Classical laminate theory (ABD matrices), first-ply failure with Tsai-Wu and Tsai-Hill strength ratios over 6 load cases</dd></div>
+          <div><dt>Solves for</dt><dd>Ply count, material selection, ply angles, symmetry and balance, and mixed materials between plies</dd></div>
+          <div><dt>Two modes</dt><dd>Optimisation near a baseline laminate, or search by target stiffness</dd></div>
+          <div><dt>Output</dt><dd>Ranked candidates on areal weight against D11, D22, D33 and min strength ratio, with a “best balanced” pick</dd></div>
+          <div><dt>Stack</dt><dd>Python, multi-core search, web interface, CSV material library</dd></div>
+        </dl>
+      </div>
+      <div class="tool-shots">
+        <div class="shot"><div class="bar-top"><i></i><i></i><i></i><span>laminate screening · generation parameters</span></div><img src="img/lam_ui.jpg" alt="Laminate screening tool interface with material table and parameters blurred" loading="lazy"></div>
+        <div class="shot-row">
+          <div class="shot"><div class="bar-top"><i></i><i></i><i></i><span>baseline</span></div><img src="img/lam_base.jpg" alt="Baseline laminate properties panel with values blurred" loading="lazy"></div>
+          <div class="shot"><div class="bar-top"><i></i><i></i><i></i><span>ranked candidates</span></div><img src="img/lam_cards.jpg" alt="Ranked candidate laminates and scatter plots with values blurred" loading="lazy"></div>
+        </div>
+        <div class="shot"><div class="bar-top"><i></i><i></i><i></i><span>laminates near the baseline · stiffness and strength against areal weight</span></div><img src="img/lam_plots.jpg" alt="Four scatter plots of stiffness and strength against areal weight, axis values blurred" loading="lazy"></div>
+      </div>
+    </div>
+
+    <!-- RULEMAP -->
+    <div class="tblock" id="rulemap">
+      <div class="tblock-head">
+        <div>
+          <p class="eyebrow"><b>MSc thesis groundwork</b> · 2027 F1 Technical Regulations</p>
+          <h3 class="th">RULEMAP: every rule, mapped onto the car</h3>
+        </div>
+        <p class="lede">A desktop app I built to analyse Section C of the 2027 F1 Technical Regulations (Issue 2, 05/08/2026). It places every mechanical rule on a blueprint of the car, rebuilds the reference volumes from the regulation’s own coordinates and cross-checks them against the text.</p>
+      </div>
+      <div class="rm-stats">
+        <div><p class="n mono">976</p><p class="l">articles, searchable, with the struck-out 2026 wording for each change</p></div>
+        <div><p class="n mono">42</p><p class="l">Appendix C2 control volumes rebuilt from the regulation coordinates</p></div>
+        <div><p class="n mono">617/617</p><p class="l">coordinates cross-checked against the text</p></div>
+        <div><p class="n mono">25</p><p class="l">geometric consistency checks, re-run on every new issue</p></div>
+      </div>
+      <div class="rm" id="rm">
+        <div class="rm-tabs" role="tablist" aria-label="RULEMAP views">
+          <button role="tab" aria-selected="true" data-src="img/rm_overview.jpg" data-cap="Overview: the 2027 Section C Issue 2 dataset, mapped onto the car.">Overview</button>
+          <button role="tab" aria-selected="false" data-src="img/rm_car.jpg" data-cap="Car: side blueprint with a hotspot for each module. Each hotspot shows the clauses, key values, what they mean for the design and the changes since 2026.">Car</button>
+          <button role="tab" aria-selected="false" data-src="img/rm_car_floor.jpg" data-cap="Floor zoom: detailed hotspots and dimension lines appear as you zoom in, with the 2027 changes tagged.">Floor</button>
+          <button role="tab" aria-selected="false" data-src="img/rm_volumes.jpg" data-cap="Control volumes: the Appendix C2 reference volumes for front wing, floor, body and rear wing. Hover to see how each is defined, click to read the clause.">Volumes</button>
+          <button role="tab" aria-selected="false" data-src="img/rm_safety.jpg" data-cap="Safety: survival cell, front and rear impact structures, roll structures, halo and side impact structures, with the test loads.">Safety</button>
+          <button role="tab" aria-selected="false" data-src="img/rm_pu.jpg" data-cap="Power unit: side view with the PU reference volumes, crank position, mounts and CoG line.">Power unit</button>
+          <button role="tab" aria-selected="false" data-src="img/rm_checks.jpg" data-cap="Checks: every control volume cross-checked against the regulation text, with the inconsistencies found in Issue 2 listed.">Checks</button>
+          <button role="tab" aria-selected="false" data-src="img/rm_materials.jpg" data-cap="Materials: what each component may be made of under C15 and part-specific clauses, plus a checker that tests a candidate material against every limit.">Materials</button>
+          <button role="tab" aria-selected="false" data-src="img/rm_regs.jpg" data-cap="Rules: all articles in a searchable list, filtered to mechanical clauses, with what changed in this issue.">Rules</button>
+          <button role="tab" aria-selected="false" data-src="img/rm_analyse.jpg" data-cap="Analyse: import a new issue or paste a clause or technical directive. RULEMAP diffs it against the active dataset and lists the hotspots and calculators to re-check.">Analyse</button>
+        </div>
+        <figure class="rm-frame">
+          <img id="rmImg" src="img/rm_overview.jpg" alt="RULEMAP application screenshot">
+          <figcaption class="cap" id="rmCap">Overview: the 2027 Section C Issue 2 dataset, mapped onto the car.</figcaption>
+        </figure>
+      </div>
+        <div class="rm-all">
+          <figure><img src="img/rm_overview.jpg" alt="RULEMAP: Overview view"><figcaption class="cap">Overview: the 2027 Section C Issue 2 dataset, mapped onto the car.</figcaption></figure>
+          <figure><img src="img/rm_car.jpg" alt="RULEMAP: Car view"><figcaption class="cap">Car: side blueprint with a hotspot for each module. Each hotspot shows the clauses, key values, what they mean for the design and the changes since 2026.</figcaption></figure>
+          <figure><img src="img/rm_car_floor.jpg" alt="RULEMAP: Floor view"><figcaption class="cap">Floor zoom: detailed hotspots and dimension lines appear as you zoom in, with the 2027 changes tagged.</figcaption></figure>
+          <figure><img src="img/rm_volumes.jpg" alt="RULEMAP: Volumes view"><figcaption class="cap">Control volumes: the Appendix C2 reference volumes for front wing, floor, body and rear wing. Hover to see how each is defined, click to read the clause.</figcaption></figure>
+          <figure><img src="img/rm_safety.jpg" alt="RULEMAP: Safety view"><figcaption class="cap">Safety: survival cell, front and rear impact structures, roll structures, halo and side impact structures, with the test loads.</figcaption></figure>
+          <figure><img src="img/rm_pu.jpg" alt="RULEMAP: Power unit view"><figcaption class="cap">Power unit: side view with the PU reference volumes, crank position, mounts and CoG line.</figcaption></figure>
+          <figure><img src="img/rm_checks.jpg" alt="RULEMAP: Checks view"><figcaption class="cap">Checks: every control volume cross-checked against the regulation text, with the inconsistencies found in Issue 2 listed.</figcaption></figure>
+          <figure><img src="img/rm_materials.jpg" alt="RULEMAP: Materials view"><figcaption class="cap">Materials: what each component may be made of under C15 and part-specific clauses, plus a checker that tests a candidate material against every limit.</figcaption></figure>
+          <figure><img src="img/rm_regs.jpg" alt="RULEMAP: Rules view"><figcaption class="cap">Rules: all articles in a searchable list, filtered to mechanical clauses, with what changed in this issue.</figcaption></figure>
+          <figure><img src="img/rm_analyse.jpg" alt="RULEMAP: Analyse view"><figcaption class="cap">Analyse: import a new issue or paste a clause or technical directive. RULEMAP diffs it against the active dataset and lists the hotspots and calculators to re-check.</figcaption></figure>
+        </div>
+      <dl class="spec">
+        <div><dt>Built with</dt><dd>JavaScript and Electron for the app; Python with PyMuPDF to extract the regulation text letter by letter, remove struck-out wording and keep the change marks</dd></div>
+        <div><dt>Calculators</dt><dd>Flex tests, the C3.18.5 floor envelope, the 400 ms adjuster, mass distribution, plank wear, fuel energy flow, ERS, PU mass and CoG, impact energy and static safety tests</dd></div>
+        <div><dt>Next</dt><dd>Feeds the aeroelastic study of the floor and front wing, and its effect on lap time</dd></div>
+        <div><dt>Code</dt><dd>Private GitHub repository · link coming soon</dd></div>
+      </dl>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT I BRING -->
+<section class="block" id="whyme">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">08 · What I bring</p>
+      <h2>Structures, simulation and a team that delivers.</h2>
+    </div>
+    <div class="letter">
+      <p class="eyebrow">In short</p>
+      <blockquote>
+        <p>I optimised a CFRP monocoque in HyperMesh and OptiStruct to 19.78 kg and 4,089 Nm/deg, and checked it against every rule load case. At Managing Composites I size laminates for motorsport and hypercar clients and calibrate material models against physical test data in LS-Dyna.</p>
+        <p>I also know what a design freeze costs when it slips. I have run a team of more than 80 people to one. I would bring that discipline to your structural design team, and learn from the engineers around me.</p>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS + EDUCATION -->
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">09 · Toolkit</p>
+      <h2>Skills and education.</h2>
+    </div>
+    <div class="skills">
+      <div><h3>Simulation</h3><p>Altair HyperMesh, OptiStruct, LS-Dyna, Radioss, Ansys Workbench, MATLAB.</p></div>
+      <div><h3>CAD</h3><p>SolidWorks, Siemens NX.</p></div>
+      <div><h3>Programming</h3><p>Python, MATLAB, Simulink/Simscape, C.</p></div>
+      <div><h3>Hands-on</h3><p>Composites manufacturing: mould-making, gelcoat, glass-fibre lay-up, carbon-fibre cutting. Chassis assembly.</p></div>
+      <div><h3>Manufacturing</h3><p>Machining, milling, non-destructive testing.</p></div>
+      <div><h3>Languages</h3><p>Spanish (native), English (fluent, C1).</p></div>
+    </div>
+
+    <div class="courses">
+      <h3 class="th" style="font-size:22px">In progress</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Course</th><th scope="col">Provider</th><th scope="col">Status</th></tr></thead>
+          <tbody>
+            <tr><td>Aerodynamics &amp; CFD</td><td><a href="https://www.thenativelab.com/" target="_blank" rel="noopener">The Native Lab ↗</a></td><td><span class="pill wip">In progress</span></td></tr>
+            <tr><td>Monocoque Structural Analysis</td><td><a href="https://www.thenativelab.com/" target="_blank" rel="noopener">The Native Lab ↗</a></td><td><span class="pill wip">In progress</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="edu">
+      <article><p class="eyebrow">Sep 2025 – Jun 2027</p><h3>MSc Industrial Engineering, Mechanical major</h3><p>Universidad Pontificia Comillas (ICAI), Madrid. Current average 7/10. Available to do my master’s thesis on the work I carry out with the team.</p></article>
+      <article><p class="eyebrow">Sep 2021 – Jun 2025</p><h3>BSc Industrial Engineering, Mechanical major</h3><p>Universidad Pontificia Comillas (ICAI), Madrid. Thesis: design and simulation of a Formula Student CFRP monocoque in Altair HyperMesh (OptiStruct), graded 10/10. Study abroad in Dallas and Dublin.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <p class="eyebrow" style="color:#8C939A">10 · Contact</p>
+    <h2 style="margin-top:14px">Ready from<br><em>January 2027.</em></h2>
+    <p class="lede">Available to relocate to Woking. Available to do my master’s thesis on the work I carry out with the team, and to keep working after the degree ends in June 2027.</p>
+    <div class="c-grid">
+      <div><p class="k">Email</p><p class="v" id="mail">m.medinalazcano@hotmail.com</p><button class="copy" type="button" id="copyMail">Copy email</button></div>
+      <div><p class="k">Phone</p><p class="v">+34 620 187 205</p></div>
+      <div><p class="k">LinkedIn</p><p class="v"><a href="https://www.linkedin.com/in/miguel-angel-medina-lazcano-13389b245/" target="_blank" rel="noopener">linkedin.com/in/miguel-angel-medina-lazcano</a></p></div>
+      <div><p class="k">Based in</p><p class="v">Madrid, Spain</p></div>
+    </div>
+    <p class="footer-note">Client geometry and data from Managing Composites are not shown. Laminate tool values are blurred. The RULEMAP repository is private. McLaren quotations are cited from mclaren.com and Fortune. This is a personal portfolio, not affiliated with McLaren Racing.</p>
+  </div>
+</section>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+  const lerp=(a,b,t)=>a+(b-a)*t;
+  const ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+
+  /* team panels */
+  document.querySelectorAll('.team-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const id=btn.dataset.panel, open=btn.getAttribute('aria-expanded')==='true';
+      document.querySelectorAll('.team-btn').forEach(b=>b.setAttribute('aria-expanded','false'));
+      document.querySelectorAll('.team-panel').forEach(p=>p.hidden=true);
+      if(!open){btn.setAttribute('aria-expanded','true');const p=document.getElementById(id);p.hidden=false;p.scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest'});}
+    });
+  });
+
+  /* horizontal chronology */
+  const hsPin=document.getElementById('hsPin'), hsTrack=document.getElementById('hsTrack');
+  const rail=[...document.querySelectorAll('#hsRail button')];
+  const cars=hsTrack.children.length;
+  const hsActive=()=>innerWidth>860;
+  function sizeHs(){hsPin.style.height=hsActive()?(cars*100)+'vh':'auto';}
+  rail.forEach(b=>b.addEventListener('click',()=>{
+    const i=+b.dataset.i, top=hsPin.getBoundingClientRect().top+scrollY;
+    const span=hsPin.offsetHeight-innerHeight;
+    scrollTo({top:top+span*(i/(cars-1))+2,behavior:reduce?'auto':'smooth'});
+  }));
+
+  /* blueprint keyframes: scale, x%, y% (of image) */
+  const bpPin=document.getElementById('bpPin'), bpImg=document.getElementById('bpImg');
+  const notes=[
+    {k:'Overview',h:'One car, every system',p:'As Mechanical Technical Director I coordinated chassis, suspension, aerodynamics, powertrain and HV/LV integration into one assembly.',s:1,x:0,y:0},
+    {k:'Front axle',h:'Front suspension',p:'Double-wishbone front corners picking up on the steel spaceframe. My first job on the team was the front suspension triangulation of the chassis.',s:2.3,x:41,y:0},
+    {k:'Chassis',h:'Steel spaceframe',p:'Triangulated tubular chassis, manufactured at the Gestamp Toledo plant. It carries every system on the car and sets its stiffness and safety.',s:1.7,x:-3,y:0},
+    {k:'Rear axle',h:'Rear suspension and drivetrain',p:'Rear corners and the electric drivetrain packaged behind the driver, with the aero elements wrapped around them.',s:2.2,x:-79,y:0}
+  ];
+  const bpK=document.getElementById('bpK'),bpH=document.getElementById('bpH'),bpP=document.getElementById('bpP');
+  const bpDots=[...document.querySelectorAll('#bpSteps i')];
+  let bpIdx=0;
+  function setNote(i){if(i===bpIdx)return;bpIdx=i;const n=notes[i];bpK.textContent=n.k;bpH.textContent=n.h;bpP.textContent=n.p;bpDots.forEach((d,j)=>d.classList.toggle('on',j===i));}
+
+  /* thesis steps */
+  const steps=[...document.querySelectorAll('.step')], figs=[...document.querySelectorAll('#stage figure')];
+  const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const i=+e.target.dataset.fig;steps.forEach(s=>s.classList.toggle('on',s===e.target));figs.forEach((f,j)=>f.classList.toggle('on',j===i));}})},{rootMargin:'-45% 0px -45% 0px'});
+  steps.forEach(s=>io.observe(s));
+
+  /* RULEMAP tabs */
+  const rmTabs=[...document.querySelectorAll('.rm-tabs button')], rmImg=document.getElementById('rmImg'), rmCap=document.getElementById('rmCap');
+  rmTabs.forEach(b=>b.addEventListener('click',()=>{rmTabs.forEach(t=>t.setAttribute('aria-selected',t===b));rmImg.src=b.dataset.src;rmImg.alt='RULEMAP: '+b.textContent+' view';rmCap.textContent=b.dataset.cap;}));
+
+  /* compare toggle */
+  const data={a:{l:'Initial laminate',m:56.88,k:2742.66,dm:'−65.2%',dk:'+49.1%'},b:{l:'IFS-07 steel frame',m:38.5,k:2300,dk:'+77.7%',dm:'−48.7%'}};
+  const fmt=v=>v.toLocaleString('en-GB',{minimumFractionDigits:v%1?2:0,maximumFractionDigits:2});
+  function setCmp(key){
+    const d=data[key];
+    document.getElementById('cmpA').setAttribute('aria-pressed',key==='a');
+    document.getElementById('cmpB').setAttribute('aria-pressed',key==='b');
+    document.getElementById('lM').textContent=d.l;document.getElementById('lK').textContent=d.l;
+    document.getElementById('vM0').textContent=fmt(d.m);document.getElementById('vK0').textContent=fmt(d.k);
+    document.getElementById('dM').textContent=d.dm;document.getElementById('dK').textContent=d.dk;
+    const mMax=60,kMax=4200;
+    document.getElementById('bM0').style.width=(d.m/mMax*100)+'%';document.getElementById('bM1').style.width=(19.78/mMax*100)+'%';
+    document.getElementById('bK0').style.width=(d.k/kMax*100)+'%';document.getElementById('bK1').style.width=(4089.04/kMax*100)+'%';
+  }
+  document.getElementById('cmpA').onclick=()=>setCmp('a');document.getElementById('cmpB').onclick=()=>setCmp('b');
+  setCmp('a');
+
+  /* copy email */
+  document.getElementById('copyMail').addEventListener('click',e=>{
+    const t='m.medinalazcano@hotmail.com',b=e.currentTarget;
+    const done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent='Copy email',1800)};
+    const sel=()=>{const r=document.createRange();r.selectNodeContents(document.getElementById('mail'));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press Ctrl/⌘+C';};
+    try{navigator.clipboard.writeText(t).then(done,sel)}catch(_){sel()}
+  });
+
+  /* nav active */
+  const links=[...document.querySelectorAll('#links a')];
+  const secs=links.map(a=>document.querySelector(a.getAttribute('href')));
+
+  /* scroll loop */
+  const prog=document.getElementById('progress'), hero=document.getElementById('heroImg');
+  let ticking=false;
+  function frame(){
+    ticking=false;
+    const y=scrollY, vh=innerHeight, max=document.documentElement.scrollHeight-vh;
+    prog.style.transform='scaleX('+(max>0?y/max:0)+')';
+    if(!reduce){ const t=clamp(y/vh,0,1); hero.style.transform='scale('+(1+t*.12)+') translateY('+(t*18)+'px)'; }
+    // horizontal
+    if(hsActive()){
+      const r=hsPin.getBoundingClientRect(), span=hsPin.offsetHeight-vh;
+      const p=clamp(-r.top/span,0,1);
+      const dist=hsTrack.scrollWidth-hsTrack.clientWidth;
+      hsTrack.style.transform='translate3d('+(-p*dist)+'px,0,0)';
+      const idx=Math.round(p*(cars-1));
+      rail.forEach((b,i)=>b.classList.toggle('on',i===idx));
+    }
+    // blueprint
+    const br=bpPin.getBoundingClientRect(), bspan=bpPin.offsetHeight-vh;
+    const bp=clamp(-br.top/bspan,0,1);
+    const seg=bp*(notes.length-1), i0=Math.floor(clamp(seg,0,notes.length-1.0001)), f=ease(seg-i0);
+    const A=notes[i0],B=notes[Math.min(i0+1,notes.length-1)];
+    const s=reduce?(f<.5?A.s:B.s):lerp(A.s,B.s,f), x=reduce?(f<.5?A.x:B.x):lerp(A.x,B.x,f);
+    bpImg.style.transform='translate(-50%,-50%) translateX('+x+'%) scale('+s+')';
+    setNote(Math.round(seg));
+    // nav
+    let cur=-1; secs.forEach((s,i)=>{if(s&&s.getBoundingClientRect().top<vh*.35)cur=i});
+    links.forEach((a,i)=>a.classList.toggle('on',i===cur));
+  }
+  function onScroll(){if(!ticking){ticking=true;requestAnimationFrame(frame)}}
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',()=>{sizeHs();onScroll()});
+  sizeHs();frame();
+})();
+</script>
+</body>
+</html>
