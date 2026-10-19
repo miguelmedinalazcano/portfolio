@@ -371,10 +371,25 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
   .contact h2{font-size:48px}
   figure,img{break-inside:avoid}
   h2,h3,.sec-head{break-after:avoid}
-  #about,#teams,#isc,#ifs08,#thesis,#concept,#tools,#whyme,#contact{break-before:page}
+  #about,#composites,#teams,#isc,#ifs08,#thesis,#concept,#tools,#whyme,#contact{break-before:page}
   .courses,.edu article,.letter{break-inside:avoid}
   .c-grid{grid-template-columns:1fr 1fr}
 }
+
+/* managing composites */
+.mc-head{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end;margin-bottom:clamp(28px,4vw,44px)}
+.mc-head .mc-logo{width:200px;padding:14px 16px;border:1px solid var(--line);border-radius:4px;background:#fff}
+.mc-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--ink)}
+.mc-cards article{padding:22px 22px 6px 0;border-right:1px solid var(--line);display:grid;gap:8px;align-content:start}
+.mc-cards article+article{padding-left:22px}
+.mc-cards article:last-child{border-right:0}
+.mc-cards .k{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--papaya-ink)}
+.mc-cards h3{font-size:20px;font-weight:720;font-variation-settings:"wdth" 102;line-height:1.1}
+.mc-cards p{color:var(--ink-2);font-size:15px}
+.mc-cards p.k{color:var(--papaya-ink)}
+.mc-tool{margin-top:clamp(48px,6vw,80px);padding-top:clamp(28px,4vw,44px);border-top:1px solid var(--line)}
+@media screen and (max-width:980px){.mc-cards{grid-template-columns:1fr 1fr}.mc-cards article:nth-child(2){border-right:0}.mc-cards article:nth-child(3){padding-left:0}.mc-cards article{padding-bottom:18px;border-bottom:1px solid var(--line)}}
+@media screen and (max-width:560px){.mc-head{grid-template-columns:1fr}.mc-cards{grid-template-columns:1fr}.mc-cards article,.mc-cards article+article{padding-left:0;border-right:0}}
 
 /* responsive */
 @media screen and (max-width:980px){
@@ -436,6 +451,7 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
     <a class="brand" href="#top">M. MEDINA<span>.</span></a>
     <div class="links" id="links">
       <a href="#about">About</a>
+      <a href="#composites">Composites</a>
       <a href="#isc">ISC</a>
       <a href="#ifs08">IFS-08</a>
       <a href="#concept">Concept</a>
@@ -536,11 +552,54 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
   </div>
 </section>
 
+<!-- MANAGING COMPOSITES -->
+<section class="block" id="composites">
+  <div class="wrap">
+    <div class="mc-head">
+      <div class="sec-head" style="margin-bottom:0">
+        <p class="eyebrow">02 · Managing Composites · Junior CAE Engineer · Jun 2026 – Dec 2026</p>
+        <h2>Composites engineering for motorsport and hypercars.</h2>
+        <p class="lede">A composites engineering consultancy in Madrid. I work on carbon-fibre structures, from crash correlation to laminate optimisation, and build the tools that make that work faster.</p>
+      </div>
+      <img class="mc-logo" src="img/mc_logo.png" alt="Managing Composites logo">
+    </div>
+    <div class="mc-cards">
+      <article><p class="k">Passive safety · Correlation</p><h3>Crash correlation of CFRP structures</h3><p>Worked on the correlation of passive-safety CFRP structures within the Zenvo hypercar development programme.</p></article>
+      <article><p class="k">LS-Dyna · Automation</p><h3>Material calibration tool</h3><p>Built and automated a material calibration tool that correlates LS-Dyna models with experimental crash tests.</p></article>
+      <article><p class="k">OptiStruct · Optimisation</p><h3>Laminate optimisation</h3><p>Optimised laminates for aerodynamic components and structural elements with bespoke modal and geometric constraints.</p></article>
+      <article><p class="k">Python · Tool</p><h3>Laminate search tool</h3><p>Classical laminate theory and first-ply failure, solving for ply count, material selection, ply angles, symmetry and more. <a href="#laminate">See it below ↓</a></p></article>
+    </div>
+    <p class="cap" style="margin-top:14px">Client geometry and data are not shown.</p>
+    <div class="mc-tool" id="laminate">
+    <div class="tool">
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px"><b>Managing Composites</b> · Python</p>
+        <h3 class="th" style="margin-bottom:16px">Laminate search and optimisation</h3>
+        <p class="lede">At Managing Composites I built a Python tool that screens thousands of candidate laminates against a baseline. It combines classical laminate theory with first-ply failure. Engineers get lighter layups that keep the bending, torsional and strength properties they need.</p>
+        <p style="margin-top:16px"><span class="redact">▮▮▮ All material data and results are blurred for confidentiality</span></p>
+        <dl class="spec">
+          <div><dt>Theory</dt><dd>Classical laminate theory (ABD matrices), first-ply failure with Tsai-Wu and Tsai-Hill strength ratios over 6 load cases</dd></div>
+          <div><dt>Solves for</dt><dd>Ply count, material selection, ply angles, symmetry and balance, and mixed materials between plies</dd></div>
+          <div><dt>Two modes</dt><dd>Optimisation near a baseline laminate, or search by target stiffness</dd></div>
+          <div><dt>Output</dt><dd>Ranked candidates on areal weight against D11, D22, D33 and min strength ratio, with a “best balanced” pick</dd></div>
+          <div><dt>Stack</dt><dd>Python, multi-core search, web interface, CSV material library</dd></div>
+        </dl>
+      </div>
+      <div class="tool-shots">
+        <div class="shot"><div class="bar-top"><i></i><i></i><i></i><span>laminate screening · generation parameters</span></div><img src="img/lam_ui.jpg" alt="Laminate screening tool interface with material table and parameters blurred" loading="lazy"></div>
+        <div class="shot"><div class="bar-top"><i></i><i></i><i></i><span>laminates near the baseline · stiffness and strength against areal weight</span></div><img src="img/lam_plots.jpg" alt="Four scatter plots of stiffness and strength against areal weight, axis values blurred" loading="lazy"></div>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ISC CHRONOLOGY (horizontal) -->
 <section class="hs" id="isc">
   <div class="wrap hs-intro">
     <div class="sec-head" style="margin-bottom:0">
-      <p class="eyebrow">02 · ISC FS Racing Team · 4 seasons, 4 cars</p>
+      <p class="eyebrow">03 · ISC FS Racing Team · 4 seasons, 4 cars</p>
       <h2>From chassis engineer to technical director.</h2>
       <p class="lede"><span class="screen-only">Scroll to follow the cars in order. </span>Each one is where my responsibility grew.</p>
     </div>
@@ -647,7 +706,7 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
     <div class="bp-sticky">
       <div class="bp-head">
         <div>
-          <p class="eyebrow">03 · IFS-08 · General assembly</p>
+          <p class="eyebrow">04 · IFS-08 · General assembly</p>
           <h2>The whole car, in one drawing.</h2>
         </div>
         <p class="cap" style="margin:0">General assembly, top view<span class="screen-only"> · scroll to zoom in</span></p>
@@ -689,7 +748,7 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
 <section class="block" id="concept">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">04 · Design &amp; vehicle concept · IFS-07 and IFS-08</p>
+      <p class="eyebrow">05 · Design &amp; vehicle concept · IFS-07 and IFS-08</p>
       <h2>Every car started on paper.</h2>
       <p class="lede">My concept sketches for the IFS-07 and IFS-08: packaging, aero surfaces and structural details. I made them to help team members get past the blocks they hit during the design phase.</p>
     </div>
@@ -723,7 +782,7 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
   <div class="wrap">
     <div class="thesis-top">
       <div class="sec-head" style="margin-bottom:0">
-        <p class="eyebrow">05 · BSc thesis · Formula Student monocoque</p>
+        <p class="eyebrow">06 · BSc thesis · Formula Student monocoque</p>
         <h2>Design and simulation of a CFRP monocoque for a Formula Student car.</h2>
         <p class="lede">Altair HyperMesh with the OptiStruct solver. Written in three months, alongside the IFS-08 season, to give the team a complete knowledge base for its first composite chassis.</p>
       </div>
@@ -835,7 +894,7 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
 <section class="block" id="teams">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">06 · Roles</p>
+      <p class="eyebrow">07 · Roles</p>
       <h2>Where I have worked.</h2>
       <p class="lede">Four seasons of Formula Student taught me the whole car. At Managing Composites I am now sharpening the structures side. <span class="screen-only">Select either logo to see my roles.</span></p>
     </div>
@@ -884,10 +943,10 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
           <div class="role">
             <div><h4>Junior CAE Engineer</h4><p class="when">Jun 2026 – Dec 2026 · Composites engineering consultancy for motorsport and hypercar clients</p></div>
             <ul>
-              <li>Developed a laminate search and optimisation tool in Python, based on classical laminate theory and first-ply-failure criteria. It solves for ply count, material selection, ply angles and laminate symmetry, so the CAE team can find lighter laminates that keep their mechanical properties. <a href="#tools">See the tool ↓</a></li>
-              <li>Calibrated a Rohacell 71-IG structural foam material model against experimental data in Altair HyperMesh with the LS-Dyna solver.</li>
-              <li>Optimised laminates for aerodynamic components and structural elements in OptiStruct, with bespoke modal and geometric constraints.</li>
-              <li>Supported the development of impact structures within the Zenvo development programme.</li>
+              <li>Worked on the correlation of passive-safety CFRP structures within the Zenvo hypercar development programme.</li>
+              <li>Built and automated a material calibration tool that correlates LS-Dyna models with experimental crash tests.</li>
+              <li>Optimised laminates for aerodynamic components and structural elements using the OptiStruct solver with bespoke modal and geometric constraints.</li>
+              <li>Developed a laminate search and optimisation tool in Python based on classical laminate theory and first-ply-failure criteria, solving for ply count, material selection, ply angles, laminate symmetry and further parameters. <a href="#composites">See more ↑</a></li>
             </ul>
           </div>
         </div>
@@ -900,7 +959,7 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
 <section class="block" id="tools">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">07 · Tools · Regulations and laminates</p>
+      <p class="eyebrow">08 · Tools · Regulations</p>
       <h2>Tools I build to answer engineering questions.</h2>
     </div>
     <!-- RULEMAP -->
@@ -950,28 +1009,6 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
         </div>
     </div>
 
-    <div class="tblock" id="laminate">
-    <div class="tool">
-      <div>
-        <p class="eyebrow" style="margin-bottom:10px"><b>Managing Composites</b> · Python</p>
-        <h3 class="th" style="margin-bottom:16px">Laminate search and optimisation</h3>
-        <p class="lede">At Managing Composites I built a Python tool that screens thousands of candidate laminates against a baseline. It combines classical laminate theory with first-ply failure. Engineers get lighter layups that keep the bending, torsional and strength properties they need.</p>
-        <p style="margin-top:16px"><span class="redact">▮▮▮ All material data and results are blurred for confidentiality</span></p>
-        <dl class="spec">
-          <div><dt>Theory</dt><dd>Classical laminate theory (ABD matrices), first-ply failure with Tsai-Wu and Tsai-Hill strength ratios over 6 load cases</dd></div>
-          <div><dt>Solves for</dt><dd>Ply count, material selection, ply angles, symmetry and balance, and mixed materials between plies</dd></div>
-          <div><dt>Two modes</dt><dd>Optimisation near a baseline laminate, or search by target stiffness</dd></div>
-          <div><dt>Output</dt><dd>Ranked candidates on areal weight against D11, D22, D33 and min strength ratio, with a “best balanced” pick</dd></div>
-          <div><dt>Stack</dt><dd>Python, multi-core search, web interface, CSV material library</dd></div>
-        </dl>
-      </div>
-      <div class="tool-shots">
-        <div class="shot"><div class="bar-top"><i></i><i></i><i></i><span>laminate screening · generation parameters</span></div><img src="img/lam_ui.jpg" alt="Laminate screening tool interface with material table and parameters blurred" loading="lazy"></div>
-        <div class="shot"><div class="bar-top"><i></i><i></i><i></i><span>laminates near the baseline · stiffness and strength against areal weight</span></div><img src="img/lam_plots.jpg" alt="Four scatter plots of stiffness and strength against areal weight, axis values blurred" loading="lazy"></div>
-      </div>
-    </div>
-
-    </div>
   </div>
 </section>
 
@@ -979,7 +1016,7 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
 <section class="block" id="whyme">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">08 · What I bring</p>
+      <p class="eyebrow">09 · What I bring</p>
       <h2>A whole car, a whole team, and the structures in between.</h2>
     </div>
     <div class="letter">
@@ -996,7 +1033,7 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
 <section class="block" id="skills">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">09 · Toolkit</p>
+      <p class="eyebrow">10 · Toolkit</p>
       <h2>Skills and education.</h2>
     </div>
     <div class="skills">
@@ -1031,7 +1068,7 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="wrap">
-    <p class="eyebrow" style="color:#A6A8AB">10 · Contact</p>
+    <p class="eyebrow" style="color:#A6A8AB">11 · Contact</p>
     <h2 style="margin-top:14px">Ready from<br><em>January 2027.</em></h2>
     <p class="lede">Available to relocate. Available to do my master’s thesis on the work I carry out with the team, and to keep working after the degree ends in June 2027.</p>
     <div class="c-grid">
