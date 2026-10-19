@@ -565,33 +565,11 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
     </div>
     <div class="mc-cards">
       <article><p class="k">Passive safety · Correlation</p><h3>Crash correlation of CFRP structures</h3><p>Worked on the correlation of passive-safety CFRP structures within the Zenvo hypercar development programme.</p></article>
-      <article><p class="k">LS-Dyna · Automation</p><h3>Material calibration tool</h3><p>Built and automated a material calibration tool that correlates LS-Dyna models with experimental crash tests.</p></article>
+      <article><p class="k">LS-Dyna · Automation</p><h3>COMPO: material calibration tool</h3><p>Built and automated COMPO, a material calibration tool that correlates LS-Dyna models with experimental crash tests.</p></article>
       <article><p class="k">OptiStruct · Optimisation</p><h3>Laminate optimisation</h3><p>Optimised laminates for aerodynamic components and structural elements with bespoke modal and geometric constraints.</p></article>
       <article><p class="k">Python · Tool</p><h3>Laminate search tool</h3><p>Classical laminate theory and first-ply failure, solving for ply count, material selection, ply angles, symmetry and more. <a href="#laminate">See it below ↓</a></p></article>
     </div>
     <p class="cap" style="margin-top:14px">Client geometry and data are not shown.</p>
-    <div class="mc-tool" id="laminate">
-    <div class="tool">
-      <div>
-        <p class="eyebrow" style="margin-bottom:10px"><b>Managing Composites</b> · Python</p>
-        <h3 class="th" style="margin-bottom:16px">Laminate search and optimisation</h3>
-        <p class="lede">At Managing Composites I built a Python tool that screens thousands of candidate laminates against a baseline. It combines classical laminate theory with first-ply failure. Engineers get lighter layups that keep the bending, torsional and strength properties they need.</p>
-        <p style="margin-top:16px"><span class="redact">▮▮▮ All material data and results are blurred for confidentiality</span></p>
-        <dl class="spec">
-          <div><dt>Theory</dt><dd>Classical laminate theory (ABD matrices), first-ply failure with Tsai-Wu and Tsai-Hill strength ratios over 6 load cases</dd></div>
-          <div><dt>Solves for</dt><dd>Ply count, material selection, ply angles, symmetry and balance, and mixed materials between plies</dd></div>
-          <div><dt>Two modes</dt><dd>Optimisation near a baseline laminate, or search by target stiffness</dd></div>
-          <div><dt>Output</dt><dd>Ranked candidates on areal weight against D11, D22, D33 and min strength ratio, with a “best balanced” pick</dd></div>
-          <div><dt>Stack</dt><dd>Python, multi-core search, web interface, CSV material library</dd></div>
-        </dl>
-      </div>
-      <div class="tool-shots">
-        <div class="shot"><div class="bar-top"><i></i><i></i><i></i><span>laminate screening · generation parameters</span></div><img src="img/lam_ui.jpg" alt="Laminate screening tool interface with material table and parameters blurred" loading="lazy"></div>
-        <div class="shot"><div class="bar-top"><i></i><i></i><i></i><span>laminates near the baseline · stiffness and strength against areal weight</span></div><img src="img/lam_plots.jpg" alt="Four scatter plots of stiffness and strength against areal weight, axis values blurred" loading="lazy"></div>
-      </div>
-    </div>
-
-    </div>
   </div>
 </section>
 
@@ -944,7 +922,7 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
             <div><h4>Junior CAE Engineer</h4><p class="when">Jun 2026 – Dec 2026 · Composites engineering consultancy for motorsport and hypercar clients</p></div>
             <ul>
               <li>Worked on the correlation of passive-safety CFRP structures within the Zenvo hypercar development programme.</li>
-              <li>Built and automated a material calibration tool that correlates LS-Dyna models with experimental crash tests.</li>
+              <li>Built and automated COMPO, a material calibration tool that correlates LS-Dyna models with experimental crash tests.</li>
               <li>Optimised laminates for aerodynamic components and structural elements using the OptiStruct solver with bespoke modal and geometric constraints.</li>
               <li>Developed a laminate search and optimisation tool in Python based on classical laminate theory and first-ply-failure criteria, solving for ply count, material selection, ply angles, laminate symmetry and further parameters. <a href="#composites">See more ↑</a></li>
             </ul>
@@ -959,7 +937,7 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
 <section class="block" id="tools">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">08 · Tools · Regulations</p>
+      <p class="eyebrow">08 · Tools · Regulations and laminates</p>
       <h2>Tools I build to answer engineering questions.</h2>
     </div>
     <!-- RULEMAP -->
@@ -1009,6 +987,23 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
         </div>
     </div>
 
+    <div class="tblock" id="laminate">
+    <div class="tool" style="grid-template-columns:1fr;max-width:860px">
+      <div>
+        <p class="eyebrow" style="margin-bottom:10px"><b>Managing Composites</b> · Python</p>
+        <h3 class="th" style="margin-bottom:16px">Laminate search and optimisation</h3>
+        <p class="lede">At Managing Composites I built a Python tool that screens thousands of candidate laminates against a baseline. It combines classical laminate theory with first-ply failure. Engineers get lighter layups that keep the bending, torsional and strength properties they need.</p>
+        <dl class="spec">
+          <div><dt>Theory</dt><dd>Classical laminate theory (ABD matrices), first-ply failure with Tsai-Wu and Tsai-Hill strength ratios over 6 load cases</dd></div>
+          <div><dt>Solves for</dt><dd>Ply count, material selection, ply angles, symmetry and balance, and mixed materials between plies</dd></div>
+          <div><dt>Two modes</dt><dd>Optimisation near a baseline laminate, or search by target stiffness</dd></div>
+          <div><dt>Output</dt><dd>Ranked candidates on areal weight against D11, D22, D33 and min strength ratio, with a “best balanced” pick</dd></div>
+          <div><dt>Stack</dt><dd>Python, multi-core search, web interface, CSV material library</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    </div>
   </div>
 </section>
 
