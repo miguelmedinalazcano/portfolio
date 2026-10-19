@@ -937,57 +937,10 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
 <section class="block" id="tools">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">08 · Tools · Regulations and laminates</p>
-      <h2>Tools I build to answer engineering questions.</h2>
+      <p class="eyebrow">08 · Tools · Laminates</p>
+      <h2>A tool I built to answer an engineering question.</h2>
     </div>
-    <!-- RULEMAP -->
-    <div id="rulemap">
-      <div class="tblock-head">
-        <div>
-          <p class="eyebrow"><b>MSc thesis groundwork</b> · 2027 Technical Regulations</p>
-          <h3 class="th">RULEMAP: every rule, mapped onto the car</h3>
-        </div>
-        <p class="lede">A desktop app I built to analyse Section C of the 2027 Technical Regulations (Issue 2, 05/08/2026). It places every mechanical rule on a blueprint of the car, analyses the changes from the previous 2026 ruleset, rebuilds the reference volumes from the regulation’s own coordinates and cross-checks them against the text.</p>
-      </div>
-      <div class="rm-stats">
-        <div><p class="n mono">976</p><p class="l">articles, searchable, with the struck-out 2026 wording for each change</p></div>
-        <div><p class="n mono">42</p><p class="l">Appendix C2 control volumes rebuilt from the regulation coordinates</p></div>
-        <div><p class="n mono">617/617</p><p class="l">coordinates cross-checked against the text</p></div>
-        <div><p class="n mono">25</p><p class="l">geometric consistency checks, re-run on every new issue</p></div>
-      </div>
-      <div class="rm" id="rm">
-        <div class="rm-tabs" role="tablist" aria-label="RULEMAP views">
-          <button role="tab" aria-selected="true" data-src="img/rm_overview.jpg" data-cap="Overview: the 2027 Section C Issue 2 dataset, mapped onto the car.">Overview</button>
-          <button role="tab" aria-selected="false" data-src="img/rm_car.jpg" data-cap="Car: side blueprint with a hotspot for each module. Each hotspot shows the clauses, key values, what they mean for the design and the changes since 2026.">Car</button>
-          <button role="tab" aria-selected="false" data-src="img/rm_car_floor.jpg" data-cap="Floor zoom: detailed hotspots and dimension lines appear as you zoom in, with the 2027 changes tagged.">Floor</button>
-          <button role="tab" aria-selected="false" data-src="img/rm_volumes.jpg" data-cap="Control volumes: the Appendix C2 reference volumes for front wing, floor, body and rear wing. Hover to see how each is defined, click to read the clause.">Volumes</button>
-          <button role="tab" aria-selected="false" data-src="img/rm_safety.jpg" data-cap="Safety: survival cell, front and rear impact structures, roll structures, halo and side impact structures, with the test loads.">Safety</button>
-          <button role="tab" aria-selected="false" data-src="img/rm_pu.jpg" data-cap="Power unit: side view with the PU reference volumes, crank position, mounts and CoG line.">Power unit</button>
-          <button role="tab" aria-selected="false" data-src="img/rm_checks.jpg" data-cap="Checks: every control volume cross-checked against the regulation text, with the inconsistencies found in Issue 2 listed.">Checks</button>
-          <button role="tab" aria-selected="false" data-src="img/rm_materials.jpg" data-cap="Materials: what each component may be made of under C15 and part-specific clauses, plus a checker that tests a candidate material against every limit.">Materials</button>
-          <button role="tab" aria-selected="false" data-src="img/rm_regs.jpg" data-cap="Rules: all articles in a searchable list, filtered to mechanical clauses, with what changed in this issue.">Rules</button>
-          <button role="tab" aria-selected="false" data-src="img/rm_analyse.jpg" data-cap="Analyse: import a new issue or paste a clause or technical directive. RULEMAP diffs it against the active dataset and lists the hotspots and calculators to re-check.">Analyse</button>
-        </div>
-        <figure class="rm-frame">
-          <img id="rmImg" src="img/rm_overview.jpg" alt="RULEMAP application screenshot">
-          <figcaption class="cap" id="rmCap">Overview: the 2027 Section C Issue 2 dataset, mapped onto the car.</figcaption>
-        </figure>
-      </div>
-        <div class="rm-all">
-          <figure><img src="img/rm_overview.jpg" alt="RULEMAP: Overview view"><figcaption class="cap">Overview: the 2027 Section C Issue 2 dataset, mapped onto the car.</figcaption></figure>
-          <figure><img src="img/rm_car.jpg" alt="RULEMAP: Car view"><figcaption class="cap">Car: side blueprint with a hotspot for each module. Each hotspot shows the clauses, key values, what they mean for the design and the changes since 2026.</figcaption></figure>
-          <figure><img src="img/rm_car_floor.jpg" alt="RULEMAP: Floor view"><figcaption class="cap">Floor zoom: detailed hotspots and dimension lines appear as you zoom in, with the 2027 changes tagged.</figcaption></figure>
-          <figure><img src="img/rm_volumes.jpg" alt="RULEMAP: Volumes view"><figcaption class="cap">Control volumes: the Appendix C2 reference volumes for front wing, floor, body and rear wing. Hover to see how each is defined, click to read the clause.</figcaption></figure>
-          <figure><img src="img/rm_safety.jpg" alt="RULEMAP: Safety view"><figcaption class="cap">Safety: survival cell, front and rear impact structures, roll structures, halo and side impact structures, with the test loads.</figcaption></figure>
-          <figure><img src="img/rm_pu.jpg" alt="RULEMAP: Power unit view"><figcaption class="cap">Power unit: side view with the PU reference volumes, crank position, mounts and CoG line.</figcaption></figure>
-          <figure><img src="img/rm_checks.jpg" alt="RULEMAP: Checks view"><figcaption class="cap">Checks: every control volume cross-checked against the regulation text, with the inconsistencies found in Issue 2 listed.</figcaption></figure>
-          <figure><img src="img/rm_materials.jpg" alt="RULEMAP: Materials view"><figcaption class="cap">Materials: what each component may be made of under C15 and part-specific clauses, plus a checker that tests a candidate material against every limit.</figcaption></figure>
-          <figure><img src="img/rm_regs.jpg" alt="RULEMAP: Rules view"><figcaption class="cap">Rules: all articles in a searchable list, filtered to mechanical clauses, with what changed in this issue.</figcaption></figure>
-          <figure><img src="img/rm_analyse.jpg" alt="RULEMAP: Analyse view"><figcaption class="cap">Analyse: import a new issue or paste a clause or technical directive. RULEMAP diffs it against the active dataset and lists the hotspots and calculators to re-check.</figcaption></figure>
-        </div>
-    </div>
-
-    <div class="tblock" id="laminate">
+    <div id="laminate">
     <div class="tool" style="grid-template-columns:1fr;max-width:860px">
       <div>
         <p class="eyebrow" style="margin-bottom:10px"><b>Managing Composites</b> · Python</p>
@@ -1072,7 +1025,7 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
       <div><p class="k">LinkedIn</p><p class="v"><a href="https://www.linkedin.com/in/miguel-angel-medina-lazcano-13389b245/" target="_blank" rel="noopener">linkedin.com/in/miguel-angel-medina-lazcano</a></p></div>
       <div><p class="k">Based in</p><p class="v">Madrid, Spain</p></div>
     </div>
-    <p class="footer-note">Client geometry and data from Managing Composites are not shown. Laminate tool values are blurred. The RULEMAP repository is private.</p>
+    <p class="footer-note">Client geometry and data from Managing Composites are not shown.</p>
   </div>
 </section>
 
@@ -1122,10 +1075,6 @@ td{padding:12px 12px 12px 0;border-bottom:1px solid var(--line);vertical-align:m
   const steps=[...document.querySelectorAll('.step')], figs=[...document.querySelectorAll('#stage figure')];
   const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const i=+e.target.dataset.fig;steps.forEach(s=>s.classList.toggle('on',s===e.target));figs.forEach((f,j)=>f.classList.toggle('on',j===i));}})},{rootMargin:'-45% 0px -45% 0px'});
   steps.forEach(s=>io.observe(s));
-
-  /* RULEMAP tabs */
-  const rmTabs=[...document.querySelectorAll('.rm-tabs button')], rmImg=document.getElementById('rmImg'), rmCap=document.getElementById('rmCap');
-  rmTabs.forEach(b=>b.addEventListener('click',()=>{rmTabs.forEach(t=>t.setAttribute('aria-selected',t===b));rmImg.src=b.dataset.src;rmImg.alt='RULEMAP: '+b.textContent+' view';rmCap.textContent=b.dataset.cap;}));
 
   /* compare toggle */
   const data={a:{l:'Initial laminate',m:56.88,k:2742.66,dm:'−65.2%',dk:'+49.1%'},b:{l:'IFS-07 steel frame',m:38.5,k:2300,dk:'+77.7%',dm:'−48.7%'}};
